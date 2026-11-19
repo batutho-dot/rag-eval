@@ -1,13 +1,15 @@
 """Step 3: print the scores from the saved runs. Spends nothing; needs no API key.
 
 Three scores per run, each scored by this script without any model:
-  1. Right passage found: the share of the 20 answerable questions where one of the
+  1. Right passage found: the share of the answerable questions where one of the
      retrieved chunks contains an accepted evidence passage.
-  2. Right answer given: the share of the 20 answerable questions whose answer contains
+  2. Right answer given: the share of the answerable questions whose answer contains
      every required term (one of the alternatives in each group of `answer_terms`) and does
      not decline.
-  3. Unanswerable declined: the share of the 10 unanswerable questions answered with
+  3. Unanswerable declined: the share of the unanswerable questions answered with
      NOT IN SOURCES.
+Each saved run is scored on the questions it covers; a run made before questions were added
+says how many of the current test set it covers.
 
 Then the judge (Claude grading each answer) and how often it agrees with hand grades.
 Agreement is reported two ways: raw agreement (share of answers where judge and hand grade
@@ -70,23 +72,28 @@ def agreement(judge: dict, hand: dict, ids: list[str]) -> dict:
 
 def main() -> None:
     questions = {q["id"]: q for q in json.loads(TESTSET.read_text(encoding="utf-8"))}
-    ans_ids = [i for i, q in questions.items() if q["type"] == "answerable"]
-    una_ids = [i for i, q in questions.items() if q["type"] == "unanswerable"]
+    all_ans = [i for i, q in questions.items() if q["type"] == "answerable"]
+    all_una = [i for i, q in questions.items() if q["type"] == "unanswerable"]
     chunk_text = {c.id: c.text for c in load_chunks(DATA_TEXT)}
     hand_all = json.loads(HAND_GRADES.read_text(encoding="utf-8")) if HAND_GRADES.exists() else {}
 
-    print(f"Test set: {len(ans_ids)} answerable, {len(una_ids)} unanswerable questions\n")
+    print(f"Test set: {len(all_ans)} answerable, {len(all_una)} unanswerable questions\n")
     for config in CONFIGS:
         path = RUNS / f"{config}.json"
         if not path.exists():
             print(f"{config}: no run yet (python run.py generate {config})\n")
             continue
         run = json.loads(path.read_text(encoding="utf-8"))
+        covered = {r["id"] for r in run["rows"]}
+        ans_ids = [i for i in all_ans if i in covered]
+        una_ids = [i for i in all_una if i in covered]
         g = script_grades(run, questions, chunk_text)
         found = sum(g[i]["passage_found"] for i in ans_ids)
         right = sum(g[i]["correct"] for i in ans_ids)
         decl = sum(g[i]["correct"] for i in una_ids)
         print(f"== {config} (search={run['search']}, k={run['k']}, {run['model']}, {run['time_utc']})")
+        if len(covered) < len(questions):
+            print(f"  this run covers {len(covered)} of the {len(questions)} current questions")
         print(f"  1. right passage found   {found:>2}/{len(ans_ids)}")
         print(f"  2. right answer given    {right:>2}/{len(ans_ids)}")
         print(f"  3. unanswerable declined {decl:>2}/{len(una_ids)}")
@@ -114,3 +121,24 @@ def main() -> None:
                 ag2 = agreement(sg, hand, list(questions))
                 print(f"  script vs hand grades:  {ag2['agree']}/{ag2['n']} agree; disagree on {ag2['disagree'] or 'none'}")
         print(f"  total measured spend for this run: {cost:.4f} USD\n")
+
+
+def retrieval(configs=None) -> None:
+    """Right passage found for every answerable question in the current test set, per
+    config. No API call; the hybrid config loads the embedding model (about 2 minutes)."""
+    from rageval.config import CONFIGS as ALL
+    from rageval.generate import build_index
+
+    chunks = load_chunks(DATA_TEXT)
+    texts = [c.text for c in chunks]
+    norm = [normalise(t) for t in texts]
+    qs = [q for q in json.loads(TESTSET.read_text(encoding="utf-8")) if q["type"] == "answerable"]
+    for config in configs or ALL:
+        cfg = ALL[config]
+        index = build_index(cfg["search"], texts)
+        missed = []
+        for q in qs:
+            top = [norm[i] for i, _ in index.search(q["question"], cfg["k"])]
+            if not any(normalise(e) in t for e in q["evidence"] for t in top):
+                missed.append(q["id"])
+        print(f"{config}: right passage found {len(qs) - len(missed)}/{len(qs)} (k={cfg['k']}); missed {missed}")

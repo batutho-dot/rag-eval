@@ -1,6 +1,20 @@
 {
-  "_note": "Retrieval results on the real corpus, measured 2026-11-19 with k=5. verify.py fails if a change moves them; update this file only on purpose, with the reason in the commit.",
+  "_note": "Retrieval results on the real corpus with k=5: measured 2026-11-19 on 30 questions, remeasured the same day after 10 questions (q21-q29, u11) were added. verify.py fails if a change moves them; update this file only on purpose, with the reason in the commit.",
   "chunks": 1257,
-  "tfidf_missed": ["q01", "q04", "q10", "q14", "q17"],
-  "hybrid_missed": ["q04", "q14", "q17"]
+  "tfidf_missed": [
+    "q01",
+    "q04",
+    "q10",
+    "q14",
+    "q17",
+    "q21",
+    "q23",
+    "q27"
+  ],
+  "hybrid_missed": [
+    "q04",
+    "q14",
+    "q17",
+    "q23"
+  ]
 }

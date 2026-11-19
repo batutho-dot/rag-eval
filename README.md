@@ -22,6 +22,11 @@ one change to it.
 The Claude judge agrees with the author's hand grades on **22 of 24** baseline answers
 (92 %, Cohen's kappa 0.70). Hybrid search is kept: it is better on all three scores.
 
+The test set has since grown to **40 questions** (29 answerable, 11 unanswerable). On all 40,
+right passage found is **21 / 29** for baseline and **25 / 29** for hybrid (no model
+involved). The answer, refusal and judge scores above are still from the first 30 questions:
+the 10 new ones have not been sent to Claude yet.
+
 ## The ideas, in plain words
 
 - **RAG** (retrieval-augmented generation): search the documents for the few passages most
@@ -163,14 +168,17 @@ The file-by-file structure, the external services and a table that ties every bo
 
 ## The test set
 
-`testset.json`, 30 questions:
+`testset.json`, 40 questions:
 
-- **20 answerable**: q01 to q10 from project 2, q11 to q20 new. Each has a reference answer,
+- **29 answerable**: q01 to q10 from project 2, q11 to q20 new, q21 to q29 added later the
+  same day (Taxonomy Articles 3, 10(2) and 20; CSRD Article 19a(3) and (7); ESRS 1
+  paragraphs 45 and 77(a) and Appendix C; ESRS E1-7). Each has a reference answer,
   required answer terms, one or more accepted evidence passages (exact words of the law,
   checked to exist in the downloaded text) and where they sit (regulation, article).
   q07 and q12 and q15 accept two passages, which fixes project 2's q07 problem (the recital
   answered it but only the article was accepted).
-- **10 unanswerable**: questions the three texts cannot answer. Several are near misses on
+- **11 unanswerable**: u01 to u10, plus u11 (an internal carbon price level, which ESRS E1-8
+  asks companies to report but never sets). Questions the three texts cannot answer. Several are near misses on
   purpose: the topic is in the law but the figure is not (u02: the ESRS says to use IPCC
   global warming potentials but gives no value for methane; u04: there is a disclosure
   requirement on adequate wages but no wage level). Each carries the reason it cannot be
@@ -178,16 +186,27 @@ The file-by-file structure, the external services and a table that ties every bo
 
 All questions were drafted with Claude from the texts and approved by the author.
 
-`testset_draft.json` holds 10 more questions (9 answerable, 1 unanswerable) drafted on 2026-11-19 and **not yet approved**. They are not in `testset.json` and not in any score above.
+q21 to q29 and u11 were drafted as a batch, approved by the author on condition that each was
+checked first, and then checked: every evidence quote was found word for word in the
+downloaded text (spaces, quotes and dashes normalised), each answer follows from its quote,
+each cited article or paragraph was matched to the heading above the quote, and ESRS E1-8
+(paragraphs 62 and 63, AR 65 and 66) was read in full to confirm it sets no price level.
+All ten passed.
 
 ## Results
 
 ### Right passage found (measured, no model involved, k = 5)
 
-| Config | Passage found | Missed |
-|---|---|---|
-| baseline (TF-IDF) | **15 / 20** | q01, q04, q10, q14, q17 |
-| hybrid | **17 / 20** | q04, q14, q17 |
+`python run.py retrieval` recomputes this on the whole current test set.
+
+| Config | First 30 questions | All 40 questions | Missed (all 40) |
+|---|---|---|---|
+| baseline (TF-IDF) | 15 / 20 | **21 / 29** | q01, q04, q10, q14, q17, q21, q23, q27 |
+| hybrid | 17 / 20 | **25 / 29** | q04, q14, q17, q23 |
+
+The new questions repeat the pattern: hybrid recovers q21 and q27, which TF-IDF misses, and
+neither finds q23 (which expert body the Taxonomy Regulation sets up: the Platform on
+Sustainable Finance).
 
 ### Answers and refusals (scored by the script)
 
@@ -266,8 +285,8 @@ script scores its answer right, from neighbouring CSRD text (not hand-graded).
 
 ## Limits
 
-- 30 questions. One answerable question is 5 percentage points; one unanswerable question
-  is 10.
+- 40 questions, of which only the first 30 have answer and judge scores. One answerable
+  question is about 3.4 percentage points; one unanswerable question about 9.
 - The question author knew the texts, so questions tend to reuse the law's wording, which
   favours TF-IDF search.
 - The answer-term check is strict about wording; the judge exists to catch what it misses.

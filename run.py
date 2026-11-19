@@ -1,6 +1,7 @@
 """rag-eval: score a small RAG pipeline on EU sustainability law.
 
     python run.py                    print the scores from the saved runs (free, no API key)
+    python run.py retrieval          right passage found on the whole test set, no API call
     python run.py download           fetch the three EU texts from EUR-Lex into data/
     python run.py generate <config>  retrieve + answer with Claude Haiku 5.5 (costs cents)
     python run.py judge <config>     grade the answers with Claude through the Batches API
@@ -18,6 +19,8 @@ if __name__ == "__main__":
     cmd = sys.argv[1] if len(sys.argv) > 1 else "report"
     if cmd == "report":
         report.main()
+    elif cmd == "retrieval":
+        report.retrieval(sys.argv[2:] or None)
     elif cmd == "download":
         from pipeline import download
 

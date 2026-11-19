@@ -40,7 +40,7 @@ flowchart TD
     env[(".env<br/>API key, git-ignored")]
     raw[("data/raw<br/>EUR-Lex HTML, git-ignored")]
     text[("data/text<br/>plain text, 3 files, git-ignored")]
-    testset[("testset.json<br/>30 questions, 20 answerable, 10 not")]
+    testset[("testset.json<br/>40 questions, 29 answerable, 11 not")]
     hand[("hand_grades.json<br/>24 baseline grades, reasons")]
     runs[("runs/CONFIG.json<br/>answers, retrieved ids, tokens, cost")]
     judgeruns[("runs/CONFIG_judge.json<br/>verdicts, batch id, cost")]
@@ -123,7 +123,7 @@ flowchart TD
 | .env | `rageval/config.py:38` (`load_dotenv`) | Local file with the API key, never committed. |
 | data/raw | `pipeline/download.py:54` | The downloaded HTML, kept so a text is fetched only once. |
 | data/text | `pipeline/download.py:56` | The plain text the chunks are cut from. |
-| testset.json | `rageval/generate.py:70` | The 30 questions with reference answers, required terms and accepted evidence. |
+| testset.json | `rageval/generate.py:70` | The 40 questions with reference answers, required terms and accepted evidence. |
 | hand_grades.json | `rageval/report.py:76` | The author's grades for 24 baseline answers, used to check the judge. |
 | runs/CONFIG.json | `rageval/generate.py:96` | One generation run: retrieved chunk ids, answer, tokens and cost per question. |
 | runs/CONFIG_judge.json | `rageval/judge.py:109` | One judge run: a verdict and reason per question, tokens, cost and batch id. |
@@ -213,7 +213,7 @@ flowchart TD
 
 | Box | `file:line` of the main function | What it does |
 |---|---|---|
-| Test question | `rageval/generate.py:70` (loop at line 75) | Loads the 30 questions and takes them one at a time. |
+| Test question | `rageval/generate.py:70` (loop at line 75) | Loads the 40 questions and takes them one at a time. |
 | Chunk the texts | `rageval/generate.py:69` calling `pipeline/chunk.py:33` | Cuts the three texts into 1257 overlapping chunks. |
 | Build the index | `rageval/generate.py:26` (`build_index`) | Builds the TF-IDF index, or the TF-IDF plus embedding index, over all chunk texts. |
 | Search | `rageval/generate.py:76` calling `pipeline/version_a.py:46` or `pipeline/hybrid.py:22` | Returns the 5 best chunks for the question and keeps their ids. |
@@ -232,7 +232,7 @@ flowchart TD
 | Verdict and reason | `rageval/judge.py:97` | Reads the JSON verdict (correct or incorrect) and one sentence of reason. |
 | runs/CONFIG_judge.json | `rageval/judge.py:109` | Writes verdicts keyed by question id, with tokens, batch price and batch id. |
 | Script grades | `rageval/report.py:39` (`script_grades`) | Checks, with no model, whether an accepted evidence passage is in the retrieved chunks, whether the answer has every required term, and whether it declined. |
-| Three scores | `rageval/report.py:86` | Counts passage found and answer right over the 20 answerable questions, and declined over the 10 unanswerable ones. |
+| Three scores | `rageval/report.py:86` | Counts passage found and answer right over the answerable questions in the run, and declined over the unanswerable ones. |
 | Judge scores | `rageval/report.py:102` | Counts the questions the judge marked correct, per group. |
 | Hand grades for this config? | `rageval/report.py:108` | Runs the agreement step only if `hand_grades.json` has grades for the config. |
 | Agreement | `rageval/report.py:62` (`agreement`, `kappa` at line 54) | Compares judge and hand grades, and script and hand grades: share that match and Cohen's kappa. |
