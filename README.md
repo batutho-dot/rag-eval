@@ -178,6 +178,8 @@ The file-by-file structure, the external services and a table that ties every bo
 
 All questions were drafted with Claude from the texts and approved by the author.
 
+`testset_draft.json` holds 10 more questions (9 answerable, 1 unanswerable) drafted on 2026-11-19 and **not yet approved**. They are not in `testset.json` and not in any score above.
+
 ## Results
 
 ### Right passage found (measured, no model involved, k = 5)
@@ -260,6 +262,8 @@ retrieved passages were different and it declined.
 **q04 is still the hardest question.** Hybrid retrieval also misses its passage, but the
 script scores its answer right, from neighbouring CSRD text (not hand-graded).
 
+**Every miss, classified.** [docs/error-analysis.md](docs/error-analysis.md) sorts each miss of both runs into retrieval miss, chunking split, answer wrong despite right passage, refusal error or judge error, with the chunk ids. Every real failure starts at retrieval: baseline 5 retrieval misses, 1 refusal error (u09), 1 judge error (q18); hybrid 3 retrieval misses, all still answered right. No chunking splits and no wrong answers with the right passage in either run.
+
 ## Limits
 
 - 30 questions. One answerable question is 5 percentage points; one unanswerable question
@@ -270,8 +274,12 @@ script scores its answer right, from neighbouring CSRD text (not hand-graded).
 - Unanswerable questions were checked against the texts by keyword search, not by reading
   every line.
 - Texts as first published in the Official Journal; later amendments are not included.
-- Language model answers vary from run to run; each config is run once, so a difference of
-  one question between configs is within noise.
+- Language model answers vary from run to run. Each config was scored on one run, so a
+  difference of one question between configs is within noise. One stability check: hybrid
+  generation was rerun once (`runs/hybrid_rerun_2026-11-19.json`, script scores only, no judge).
+  Retrieval was identical and all three scores matched (17/20, 20/20, 10/10), so the spread is
+  0 on 2 runs; output tokens moved from 3,751 to 3,855 and cost stayed at 0.0087 USD. Two runs
+  cannot rule out a one-question swing on a third.
 - Hand grades cover the baseline run only, and were drafted by a model before the author's
   review (see above), not written from scratch.
 
