@@ -78,6 +78,86 @@ Hybrid search is the one change tested. Project 2 found the two search methods m
 different questions, so merging their rankings should find more passages. It is kept only if
 it does not lose on any of the three scores.
 
+## How it is built
+
+One evaluation run goes from a test question to retrieval, a Claude answer, three scores, a Claude judge (through the Batches API) and the agreement with hand grades. Orange is Claude, blue is a saved file.
+
+```mermaid
+flowchart TD
+    subgraph GEN["1 generate: rageval/generate.py"]
+        q["Test question<br/>testset.json, 30, one at a time"]
+        chunks["Chunk the texts<br/>1257 chunks, 200 words, overlap 50"]
+        index["Build the index<br/>tfidf or hybrid, once per run"]
+        search["Search<br/>top 5 chunks, ids kept"]
+        prompt["Build the prompt<br/>numbered passages, question"]
+        haiku{{"Claude Haiku 5.5<br/>effort low, passages only"}}
+        row["Answer row<br/>text or NOT IN SOURCES, tokens, cost"]
+        cap{"Run cost over 5 USD?"}
+        stop["Stop<br/>nothing saved"]
+        more{"More questions?"}
+        save[("runs/CONFIG.json")]
+    end
+
+    subgraph JDG["2 judge: rageval/judge.py"]
+        build["Build requests<br/>one per answer, rubric, JSON schema"]
+        batch{{"Batches API<br/>claude-sonnet-5-5, effort medium"}}
+        poll{"Batch ended?"}
+        wait["Wait 20 s<br/>poll again"]
+        ok{"Succeeded, not refused?"}
+        bad["Verdict none<br/>reason recorded"]
+        good["Verdict and reason<br/>correct or incorrect"]
+        jsave[("runs/CONFIG_judge.json")]
+    end
+
+    subgraph REP["3 report: rageval/report.py"]
+        script["Script grades<br/>passage found, required terms, declined"]
+        scores["Three scores<br/>passage found, answer right, declined"]
+        jscore["Judge scores<br/>right answers, declined"]
+        hasHand{"Hand grades for this config?"}
+        agree["Agreement<br/>judge vs hand, raw share, Cohen kappa"]
+        out["Printed report<br/>scores, agreement, spend"]
+    end
+
+    chunks --> index
+    q --> search
+    index --> search
+    search --> prompt
+    prompt --> haiku
+    haiku --> row
+    row --> cap
+    cap -->|"yes"| stop
+    cap -->|"no"| more
+    more -->|"yes, next question"| search
+    more -->|"no"| save
+
+    save --> build
+    build --> batch
+    batch --> poll
+    poll -->|"no"| wait
+    wait --> poll
+    poll -->|"yes"| ok
+    ok -->|"no"| bad
+    ok -->|"yes"| good
+    bad --> jsave
+    good --> jsave
+
+    save --> script
+    script --> scores
+    jsave --> jscore
+    scores --> hasHand
+    jscore --> hasHand
+    hasHand -->|"yes"| agree
+    hasHand -->|"no"| out
+    agree --> out
+
+    classDef ext fill:#fde8c8,stroke:#b36b00,color:#000
+    classDef data fill:#dbeafe,stroke:#2563eb,color:#000
+    class haiku,batch ext
+    class save,jsave data
+```
+
+The file-by-file structure, the external services and a table that ties every box to its `file:line` are in [docs/architecture.md](docs/architecture.md).
+
 ## The test set
 
 `testset.json`, 30 questions:
