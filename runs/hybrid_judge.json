@@ -3,11 +3,12 @@
   "judge_model": "claude-sonnet-5-5",
   "batch_id": [
     "msgbatch_019HmjAqmX21t1sFAnz7GkBK",
-    "msgbatch_0194jcWU7m1j7hejp4VgzLzt"
+    "msgbatch_0194jcWU7m1j7hejp4VgzLzt",
+    "msgbatch_017oG9ktPKC8A1KszdcYxT3d"
   ],
-  "input_tokens": 27516,
-  "output_tokens": 3013,
-  "cost_usd": 0.042581,
+  "input_tokens": 34345,
+  "output_tokens": 3717,
+  "cost_usd": 0.05293,
   "verdicts": {
     "q01": {
       "verdict": "correct",
@@ -125,6 +126,34 @@
       "verdict": "correct",
       "reason": "The answer identifies Disclosure Requirement E1-7 as covering GHG removals and GHG mitigation projects financed through carbon credits, matching the reference and source."
     },
+    "q30": {
+      "verdict": "correct",
+      "reason": "The answer states 31 December 2021, matching the reference answer and the source passage in Article 26(2)."
+    },
+    "q31": {
+      "verdict": "incorrect",
+      "reason": "The question is answerable, since Article 27(2)(b) states the date is 1 January 2023, but the answer declined to give it."
+    },
+    "q32": {
+      "verdict": "incorrect",
+      "reason": "The question is answerable and the source gives the transposition deadline of 6 July 2024, but the answer declined with 'NOT IN SOURCES' instead of stating it."
+    },
+    "q33": {
+      "verdict": "incorrect",
+      "reason": "The reference requires targets at least for 2030 and 2050, where appropriate (i.e. the 'where appropriate' qualifies the absolute GHG targets as a whole). The answer says 2050 only 'if available', which changes the meaning and weakens the 2050 requirement, so it does not state the substance accurately."
+    },
+    "q34": {
+      "verdict": "correct",
+      "reason": "The answer states both conditions from the reference: at least 50 employees in the country and at least 10% of total employees, which matches the source passage."
+    },
+    "q35": {
+      "verdict": "incorrect",
+      "reason": "The question is answerable, and the source states that high climate impact sectors are those in NACE Sections A to H and Section L, but the answer declined to give it."
+    },
+    "q36": {
+      "verdict": "correct",
+      "reason": "The answer states the rate is per 1,000,000 hours worked, matching the reference; omitting the note about undertakings with fewer than 500 people does not change the core substance."
+    },
     "u01": {
       "verdict": "correct",
       "reason": "The question is unanswerable because the documents leave penalties to Member States and give no Danish fine amount, and the answer correctly declines with 'NOT IN SOURCES'."
@@ -168,6 +197,18 @@
     "u11": {
       "verdict": "correct",
       "reason": "The question is unanswerable because ESRS E1 (E1-8) sets no required internal carbon price level, and the answer correctly declines with 'NOT IN SOURCES'."
+    },
+    "u12": {
+      "verdict": "correct",
+      "reason": "The question is unanswerable because Article 20 gives no member count, and the answer correctly declines with 'NOT IN SOURCES'."
+    },
+    "u13": {
+      "verdict": "correct",
+      "reason": "The question is unanswerable because ESRS S1 sets no minimum training hours, and the answer correctly declines with 'NOT IN SOURCES'."
+    },
+    "u14": {
+      "verdict": "correct",
+      "reason": "The question is unanswerable because ESRS S1-16 sets no gender pay gap threshold or duty to act, and the answer correctly declines with 'NOT IN SOURCES'."
     }
   }
 }

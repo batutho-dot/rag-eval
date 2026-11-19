@@ -3,10 +3,10 @@
   "search": "tfidf",
   "k": 5,
   "model": "claude-haiku-5-5",
-  "time_utc": "2026-11-19T10:18:32+00:00",
-  "input_tokens": 89691,
-  "output_tokens": 6526,
-  "cost_usd": 0.012232,
+  "time_utc": "2026-11-19T21:44:24+00:00",
+  "input_tokens": 112775,
+  "output_tokens": 7810,
+  "cost_usd": 0.015182,
   "rows": [
     {
       "id": "q01",
@@ -657,6 +657,176 @@
       "cost_usd": 0.00023820000000000002,
       "seconds": 0.73,
       "added_utc": "2026-11-19T10:18:32+00:00"
+    },
+    {
+      "id": "q30",
+      "retrieved": [
+        "taxonomy#0046",
+        "taxonomy#0104",
+        "taxonomy#0045",
+        "taxonomy#0102",
+        "taxonomy#0056"
+      ],
+      "answer": "The Commission had to publish that report by 31 December 2021 [2].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2204,
+      "output_tokens": 101,
+      "cost_usd": 0.00027089999999999997,
+      "seconds": 1.08,
+      "added_utc": "2026-11-19T21:44:24+00:00"
+    },
+    {
+      "id": "q31",
+      "retrieved": [
+        "esrs#0198",
+        "esrs#0234",
+        "esrs#0187",
+        "taxonomy#0101",
+        "esrs#0200"
+      ],
+      "answer": "NOT IN SOURCES",
+      "stop_reason": "end_turn",
+      "input_tokens": 2406,
+      "output_tokens": 324,
+      "cost_usd": 0.00040260000000000003,
+      "seconds": 1.89,
+      "added_utc": "2026-11-19T21:44:24+00:00"
+    },
+    {
+      "id": "q32",
+      "retrieved": [
+        "csrd#0176",
+        "csrd#0023",
+        "csrd#0249",
+        "csrd#0092",
+        "csrd#0091"
+      ],
+      "answer": "NOT IN SOURCES",
+      "stop_reason": "end_turn",
+      "input_tokens": 2006,
+      "output_tokens": 140,
+      "cost_usd": 0.0002706,
+      "seconds": 1.09,
+      "added_utc": "2026-11-19T21:44:24+00:00"
+    },
+    {
+      "id": "q33",
+      "retrieved": [
+        "csrd#0120",
+        "csrd#0138",
+        "esrs#0201",
+        "esrs#0200",
+        "esrs#0203"
+      ],
+      "answer": "Absolute greenhouse gas emission reduction targets should be set at least for 2030 and 2050 [1][2].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2286,
+      "output_tokens": 107,
+      "cost_usd": 0.0002821,
+      "seconds": 0.95,
+      "added_utc": "2026-11-19T21:44:24+00:00"
+    },
+    {
+      "id": "q34",
+      "retrieved": [
+        "esrs#0538",
+        "esrs#0100",
+        "esrs#0443",
+        "esrs#0442",
+        "esrs#0445"
+      ],
+      "answer": "NOT IN SOURCES",
+      "stop_reason": "end_turn",
+      "input_tokens": 2552,
+      "output_tokens": 177,
+      "cost_usd": 0.00034370000000000006,
+      "seconds": 1.23,
+      "added_utc": "2026-11-19T21:44:24+00:00"
+    },
+    {
+      "id": "q35",
+      "retrieved": [
+        "esrs#0252",
+        "esrs#0173",
+        "esrs#0205",
+        "esrs#0184",
+        "esrs#0174"
+      ],
+      "answer": "NOT IN SOURCES",
+      "stop_reason": "end_turn",
+      "input_tokens": 2754,
+      "output_tokens": 113,
+      "cost_usd": 0.00033190000000000004,
+      "seconds": 1.01,
+      "added_utc": "2026-11-19T21:44:24+00:00"
+    },
+    {
+      "id": "q36",
+      "retrieved": [
+        "esrs#0543",
+        "esrs#0544",
+        "esrs#0482",
+        "esrs#0101",
+        "esrs#0178"
+      ],
+      "answer": "The rate of work-related injuries is expressed per one million hours worked: the number of cases is divided by total hours worked and multiplied by 1,000,000 [1]. The same 1,000,000-hour basis applies to undertakings with fewer than 500 people for comparability purposes [1][2].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2323,
+      "output_tokens": 216,
+      "cost_usd": 0.00034030000000000003,
+      "seconds": 1.33,
+      "added_utc": "2026-11-19T21:44:24+00:00"
+    },
+    {
+      "id": "u12",
+      "retrieved": [
+        "taxonomy#0038",
+        "esrs#0187",
+        "taxonomy#0085",
+        "taxonomy#0044",
+        "taxonomy#0041"
+      ],
+      "answer": "NOT IN SOURCES",
+      "stop_reason": "end_turn",
+      "input_tokens": 2201,
+      "output_tokens": 12,
+      "cost_usd": 0.00022610000000000002,
+      "seconds": 0.66,
+      "added_utc": "2026-11-19T21:44:24+00:00"
+    },
+    {
+      "id": "u13",
+      "retrieved": [
+        "esrs#0538",
+        "esrs#0539",
+        "esrs#0481",
+        "esrs#0524",
+        "esrs#0100"
+      ],
+      "answer": "NOT IN SOURCES",
+      "stop_reason": "end_turn",
+      "input_tokens": 2094,
+      "output_tokens": 82,
+      "cost_usd": 0.0002504,
+      "seconds": 0.89,
+      "added_utc": "2026-11-19T21:44:24+00:00"
+    },
+    {
+      "id": "u14",
+      "retrieved": [
+        "esrs#0548",
+        "esrs#0485",
+        "esrs#0486",
+        "esrs#0445",
+        "esrs#0547"
+      ],
+      "answer": "NOT IN SOURCES",
+      "stop_reason": "end_turn",
+      "input_tokens": 2258,
+      "output_tokens": 12,
+      "cost_usd": 0.00023180000000000002,
+      "seconds": 0.66,
+      "added_utc": "2026-11-19T21:44:24+00:00"
     }
   ]
 }

@@ -37,7 +37,7 @@ flowchart TD
     env[(".env<br/>API key, git-ignored")]
     raw[("data/raw<br/>EUR-Lex HTML, git-ignored")]
     text[("data/text<br/>plain text, 3 files, git-ignored")]
-    testset[("testset.json<br/>40 questions, 29 answerable, 11 not")]
+    testset[("testset.json<br/>50 questions, 36 answerable, 14 not")]
     hand[("hand_grades.json<br/>24 baseline grades, reasons")]
     runs[("runs/CONFIG.json<br/>answers, retrieved ids, tokens, cost")]
     judgeruns[("runs/CONFIG_judge.json<br/>verdicts, batch id, cost")]
@@ -120,7 +120,7 @@ flowchart TD
 | .env | `rageval/config.py:38` (`load_dotenv`) | Local API key, never committed. |
 | data/raw | `pipeline/download.py:54` | Downloaded HTML, so a text is fetched once. |
 | data/text | `pipeline/download.py:56` | Plain text the chunks are cut from. |
-| testset.json | `rageval/generate.py:70` | The 40 questions with reference answers, required terms and accepted evidence. |
+| testset.json | `rageval/generate.py:70` | The 50 questions with reference answers, required terms and accepted evidence. |
 | hand_grades.json | `rageval/report.py:76` | My grades for 24 baseline answers, used to check the judge. |
 | runs/CONFIG.json | `rageval/generate.py:96` | One generation run: retrieved ids, answer, tokens, cost per question. |
 | runs/CONFIG_judge.json | `rageval/judge.py:109` | One judge run: verdict and reason per question, tokens, cost, batch id. |
@@ -208,7 +208,7 @@ flowchart TD
 
 | Box | `file:line` of the main function | What it does |
 |---|---|---|
-| Test question | `rageval/generate.py:70` (loop at line 75) | Loads the 40 questions, takes them one at a time. |
+| Test question | `rageval/generate.py:70` (loop at line 75) | Loads the 50 questions, takes them one at a time. |
 | Chunk the texts | `rageval/generate.py:69` calling `pipeline/chunk.py:33` | Cuts the three texts into 1257 overlapping chunks. |
 | Build the index | `rageval/generate.py:26` (`build_index`) | Builds the TF-IDF index, or TF-IDF plus embeddings, over all chunk texts. |
 | Search | `rageval/generate.py:76` calling `pipeline/version_a.py:46` or `pipeline/hybrid.py:22` | Returns the 5 best chunks, keeps their ids. |

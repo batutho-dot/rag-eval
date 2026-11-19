@@ -3,10 +3,10 @@
   "search": "hybrid",
   "k": 5,
   "model": "claude-haiku-5-5",
-  "time_utc": "2026-11-19T10:22:31+00:00",
-  "input_tokens": 90187,
-  "output_tokens": 5935,
-  "cost_usd": 0.011986,
+  "time_utc": "2026-11-19T21:48:16+00:00",
+  "input_tokens": 113160,
+  "output_tokens": 6959,
+  "cost_usd": 0.014795,
   "rows": [
     {
       "id": "q01",
@@ -657,6 +657,176 @@
       "cost_usd": 0.0002915,
       "seconds": 1.41,
       "added_utc": "2026-11-19T10:22:31+00:00"
+    },
+    {
+      "id": "q30",
+      "retrieved": [
+        "taxonomy#0104",
+        "taxonomy#0102",
+        "taxonomy#0003",
+        "esrs#0058",
+        "csrd#0003"
+      ],
+      "answer": "The Commission had to publish that report by 31 December 2021 [1].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2299,
+      "output_tokens": 118,
+      "cost_usd": 0.0002889,
+      "seconds": 1.12,
+      "added_utc": "2026-11-19T21:48:16+00:00"
+    },
+    {
+      "id": "q31",
+      "retrieved": [
+        "esrs#0198",
+        "taxonomy#0058",
+        "esrs#0187",
+        "esrs#0199",
+        "taxonomy#0018"
+      ],
+      "answer": "NOT IN SOURCES",
+      "stop_reason": "end_turn",
+      "input_tokens": 2328,
+      "output_tokens": 12,
+      "cost_usd": 0.0002388,
+      "seconds": 0.66,
+      "added_utc": "2026-11-19T21:48:16+00:00"
+    },
+    {
+      "id": "q32",
+      "retrieved": [
+        "csrd#0226",
+        "csrd#0092",
+        "csrd#0028",
+        "csrd#0098",
+        "csrd#0169"
+      ],
+      "answer": "NOT IN SOURCES",
+      "stop_reason": "end_turn",
+      "input_tokens": 2140,
+      "output_tokens": 153,
+      "cost_usd": 0.0002905,
+      "seconds": 1.14,
+      "added_utc": "2026-11-19T21:48:16+00:00"
+    },
+    {
+      "id": "q33",
+      "retrieved": [
+        "esrs#0201",
+        "esrs#0203",
+        "esrs#0239",
+        "esrs#0202",
+        "esrs#0238"
+      ],
+      "answer": "At a minimum, targets must include values for 2030, and for 2050 if available [4].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2211,
+      "output_tokens": 117,
+      "cost_usd": 0.0002796,
+      "seconds": 1.04,
+      "added_utc": "2026-11-19T21:48:16+00:00"
+    },
+    {
+      "id": "q34",
+      "retrieved": [
+        "esrs#0100",
+        "esrs#0522",
+        "esrs#0521",
+        "esrs#0101",
+        "esrs#0538"
+      ],
+      "answer": "Under ESRS S1, the country breakdown applies to countries where the undertaking has at least 50 employees, and those employees represent at least 10% of its total workforce [2].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2161,
+      "output_tokens": 201,
+      "cost_usd": 0.0003166,
+      "seconds": 1.36,
+      "added_utc": "2026-11-19T21:48:16+00:00"
+    },
+    {
+      "id": "q35",
+      "retrieved": [
+        "esrs#0174",
+        "esrs#0173",
+        "esrs#0184",
+        "esrs#0196",
+        "esrs#0183"
+      ],
+      "answer": "NOT IN SOURCES",
+      "stop_reason": "end_turn",
+      "input_tokens": 2910,
+      "output_tokens": 82,
+      "cost_usd": 0.000332,
+      "seconds": 0.9,
+      "added_utc": "2026-11-19T21:48:16+00:00"
+    },
+    {
+      "id": "q36",
+      "retrieved": [
+        "esrs#0543",
+        "esrs#0544",
+        "esrs#0178",
+        "esrs#0101",
+        "esrs#0540"
+      ],
+      "answer": "The rate of work-related injuries is expressed per 1,000,000 hours worked, so the number of cases is divided by total hours worked and multiplied by 1,000,000 [1][2].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2342,
+      "output_tokens": 169,
+      "cost_usd": 0.00031870000000000005,
+      "seconds": 1.11,
+      "added_utc": "2026-11-19T21:48:16+00:00"
+    },
+    {
+      "id": "u12",
+      "retrieved": [
+        "taxonomy#0085",
+        "taxonomy#0044",
+        "taxonomy#0039",
+        "taxonomy#0087",
+        "taxonomy#0088"
+      ],
+      "answer": "NOT IN SOURCES",
+      "stop_reason": "end_turn",
+      "input_tokens": 2135,
+      "output_tokens": 57,
+      "cost_usd": 0.000242,
+      "seconds": 0.82,
+      "added_utc": "2026-11-19T21:48:16+00:00"
+    },
+    {
+      "id": "u13",
+      "retrieved": [
+        "esrs#0539",
+        "esrs#0100",
+        "esrs#0538",
+        "esrs#0101",
+        "esrs#0481"
+      ],
+      "answer": "NOT IN SOURCES",
+      "stop_reason": "end_turn",
+      "input_tokens": 2155,
+      "output_tokens": 103,
+      "cost_usd": 0.000267,
+      "seconds": 0.95,
+      "added_utc": "2026-11-19T21:48:16+00:00"
+    },
+    {
+      "id": "u14",
+      "retrieved": [
+        "esrs#0548",
+        "esrs#0486",
+        "esrs#0485",
+        "esrs#0445",
+        "esrs#0557"
+      ],
+      "answer": "NOT IN SOURCES",
+      "stop_reason": "end_turn",
+      "input_tokens": 2292,
+      "output_tokens": 12,
+      "cost_usd": 0.00023520000000000002,
+      "seconds": 0.67,
+      "added_utc": "2026-11-19T21:48:16+00:00"
     }
   ]
 }

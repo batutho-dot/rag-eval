@@ -90,13 +90,13 @@ def step_testset(tmp):
     check(len(set(ids)) == len(ids), "duplicate ids")
     ans = [q for q in qs if q["type"] == "answerable"]
     una = [q for q in qs if q["type"] == "unanswerable"]
-    check((len(ans), len(una)) == (29, 11), f"{len(ans)} answerable / {len(una)} unanswerable, expected 29 / 11")
+    check((len(ans), len(una)) == (36, 14), f"{len(ans)} answerable / {len(una)} unanswerable, expected 36 / 14")
     for q in ans:
         check(all(q.get(k) for k in ("question", "doc", "where", "answer", "answer_terms", "evidence")), f"{q['id']} missing a field")
         check(all(len(e.split()) <= 50 for e in q["evidence"]), f"{q['id']} evidence longer than the chunk overlap")
     for q in una:
         check(q.get("question") and q.get("why"), f"{q['id']} missing a field")
-    return "29 answerable + 11 unanswerable, all fields, evidence fits in the overlap"
+    return "36 answerable + 14 unanswerable, all fields, evidence fits in the overlap"
 
 
 def corpus(tmp):
@@ -138,7 +138,7 @@ def step_real_tfidf(tmp):
     check(len(chunks) == KNOWN["chunks"], f"{len(chunks)} chunks, expected {KNOWN['chunks']}")
     m = missed(TfidfIndex, chunks)
     check(m == KNOWN["tfidf_missed"], f"missed {m}, known-good {KNOWN['tfidf_missed']}")
-    return f"TF-IDF on the real corpus: passage found {29 - len(m)}/29, matches verify_known_good.json"
+    return f"TF-IDF on the real corpus: passage found {36 - len(m)}/36, matches verify_known_good.json"
 
 
 def step_report(tmp):
@@ -158,7 +158,7 @@ def step_report(tmp):
             rows.append({"id": q["id"], "retrieved": [ev_chunk[q["id"]]], "answer": q["answer"]})
         else:
             rows.append({"id": q["id"], "retrieved": [], "answer": "NOT IN SOURCES"})
-    rows[0]["answer"] = "NOT IN SOURCES"  # one false decline: expect 28/29 right answers
+    rows[0]["answer"] = "NOT IN SOURCES"  # one false decline: expect 35/36 right answers
     runs = tmp / "runs"
     runs.mkdir()
     run = {"search": "tfidf", "k": 5, "model": "fake", "time_utc": "fixed", "input_tokens": 0,
@@ -180,10 +180,10 @@ def step_report(tmp):
     finally:
         report.RUNS, report.HAND_GRADES, report.DATA_TEXT = old
     out = buf.getvalue()
-    for want in ("right passage found   29/29", "right answer given    28/29", "unanswerable declined 11/11",
-                 "JUDGE vs HAND GRADES: 39/40 agree", "disagree on ['q01']"):
+    for want in ("right passage found   36/36", "right answer given    35/36", "unanswerable declined 14/14",
+                 "JUDGE vs HAND GRADES: 49/50 agree", "disagree on ['q01']"):
         check(want in out, f"report output lacks {want!r}")
-    return "fixed fake run: 29/29, 28/29, 11/11, judge agreement 39/40"
+    return "fixed fake run: 36/36, 35/36, 14/14, judge agreement 49/50"
 
 
 def step_real_hybrid(tmp):
@@ -191,7 +191,7 @@ def step_real_hybrid(tmp):
 
     m = missed(HybridIndex, corpus(tmp))
     check(m == KNOWN["hybrid_missed"], f"missed {m}, known-good {KNOWN['hybrid_missed']}")
-    return f"hybrid on the real corpus: passage found {29 - len(m)}/29, matches verify_known_good.json"
+    return f"hybrid on the real corpus: passage found {36 - len(m)}/36, matches verify_known_good.json"
 
 
 def main():

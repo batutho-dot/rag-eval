@@ -3,11 +3,12 @@
   "judge_model": "claude-sonnet-5-5",
   "batch_id": [
     "msgbatch_01Q3oSjZgpnHTaLL8Jgn8UXx",
-    "msgbatch_0122D4Cj5CiYEJPjfnvHnMm1"
+    "msgbatch_0122D4Cj5CiYEJPjfnvHnMm1",
+    "msgbatch_01UKX5Kgkve58rfbRk37eAvL"
   ],
-  "input_tokens": 27421,
-  "output_tokens": 3221,
-  "cost_usd": 0.043526,
+  "input_tokens": 34250,
+  "output_tokens": 3925,
+  "cost_usd": 0.053875,
   "verdicts": {
     "q01": {
       "verdict": "incorrect",
@@ -125,6 +126,34 @@
       "verdict": "correct",
       "reason": "The answer identifies Disclosure Requirement E1-7 with the correct title, matching the reference answer and source passage."
     },
+    "q30": {
+      "verdict": "correct",
+      "reason": "The answer states the deadline of 31 December 2021, which matches the reference answer and the source passage in Article 26(2)."
+    },
+    "q31": {
+      "verdict": "incorrect",
+      "reason": "The question is answerable and the correct answer is 1 January 2023, but the response declined to answer with 'NOT IN SOURCES'."
+    },
+    "q32": {
+      "verdict": "incorrect",
+      "reason": "The question is answerable from Article 5(1) of Directive (EU) 2022/2464, which gives the deadline of 6 July 2024, so declining to answer with 'NOT IN SOURCES' is incorrect."
+    },
+    "q33": {
+      "verdict": "correct",
+      "reason": "The answer states targets should be set at least for 2030 and 2050, matching the reference; omitting 'where appropriate' is a minor omission that does not contradict the source."
+    },
+    "q34": {
+      "verdict": "incorrect",
+      "reason": "The question is answerable from the source passage (countries where the undertaking has 50 or more employees representing at least 10% of its total employees), but the answer declined with 'NOT IN SOURCES'."
+    },
+    "q35": {
+      "verdict": "incorrect",
+      "reason": "The question is answerable, since the source says high climate impact sectors are those in NACE Sections A to H and Section L, but the answer declined to give it."
+    },
+    "q36": {
+      "verdict": "correct",
+      "reason": "The answer states the rate is per one million hours worked and that the same 1,000,000-hour basis applies to undertakings with fewer than 500 people, matching the reference and source passage."
+    },
     "u01": {
       "verdict": "correct",
       "reason": "The question is unanswerable from the documents, since penalties are left to Member States and no Danish amount is given, and the answer correctly declines with 'NOT IN SOURCES'."
@@ -168,6 +197,18 @@
     "u11": {
       "verdict": "correct",
       "reason": "The question is unanswerable because ESRS E1 (E1-8) sets no required internal carbon price level, and the answer correctly declines with 'NOT IN SOURCES'."
+    },
+    "u12": {
+      "verdict": "correct",
+      "reason": "The question is unanswerable because Article 20 gives no member count, and the answer correctly declines with 'NOT IN SOURCES'."
+    },
+    "u13": {
+      "verdict": "correct",
+      "reason": "The question is unanswerable because ESRS S1 sets no minimum training hours, and the answer correctly declines with 'NOT IN SOURCES'."
+    },
+    "u14": {
+      "verdict": "correct",
+      "reason": "The question is unanswerable because ESRS S1-16 sets no gender pay gap threshold or duty to act, and the answer correctly declines with 'NOT IN SOURCES'."
     }
   }
 }
