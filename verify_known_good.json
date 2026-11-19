@@ -1,0 +1,6 @@
+{
+  "_note": "Retrieval results on the real corpus, measured 2026-11-19 with k=5. verify.py fails if a change moves them; update this file only on purpose, with the reason in the commit.",
+  "chunks": 1257,
+  "tfidf_missed": ["q01", "q04", "q10", "q14", "q17"],
+  "hybrid_missed": ["q04", "q14", "q17"]
+}
