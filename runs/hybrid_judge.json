@@ -1,0 +1,130 @@
+{
+  "config": "hybrid",
+  "judge_model": "claude-sonnet-5-5",
+  "batch_id": "msgbatch_019HmjAqmX21t1sFAnz7GkBK",
+  "input_tokens": 20260,
+  "output_tokens": 2128,
+  "cost_usd": 0.0309,
+  "verdicts": {
+    "q01": {
+      "verdict": "correct",
+      "reason": "The answer lists all six environmental objectives from the reference answer, with no contradictions."
+    },
+    "q02": {
+      "verdict": "correct",
+      "reason": "The answer names the OECD Guidelines for Multinational Enterprises and the UN Guiding Principles on Business and Human Rights, and also mentions the ILO conventions and the International Bill of Human Rights, matching the reference without contradicting the source."
+    },
+    "q03": {
+      "verdict": "correct",
+      "reason": "The answer states the core substance, that the activity leads to significant greenhouse gas emissions; the added life-cycle point is consistent with Article 17(1), which requires considering the life cycle, so it does not contradict the source."
+    },
+    "q04": {
+      "verdict": "correct",
+      "reason": "The answer captures both elements: the company's impacts (on people and environment, which are sustainability matters) and how sustainability matters affect the undertaking; it omits 'development, performance and position' but conveys the substance, and the double materiality framing is consistent with the source."
+    },
+    "q05": {
+      "verdict": "correct",
+      "reason": "The answer states that reporting applies to financial years starting on or after 1 January 2024, which matches the reference answer and the source passage."
+    },
+    "q06": {
+      "verdict": "correct",
+      "reason": "The answer states the deadline of 1 October 2028 for adopting reasonable assurance standards via delegated acts, matching the reference and source passage."
+    },
+    "q07": {
+      "verdict": "correct",
+      "reason": "The answer states the required ESEF format under Article 3 of Delegated Regulation (EU) 2019/815 and mentions the markup of sustainability reporting, matching the reference; the added human- and machine-readable point is consistent with the source."
+    },
+    "q08": {
+      "verdict": "correct",
+      "reason": "The answer states that the medium-term horizon runs from the end of the short-term reporting period up to 5 years, matching the reference and source passage."
+    },
+    "q09": {
+      "verdict": "correct",
+      "reason": "The answer states that ESRS 2 General Disclosures must always be disclosed regardless of materiality, plus the topical Disclosure Requirements related to IRO-1, matching the reference answer and not contradicting the source."
+    },
+    "q10": {
+      "verdict": "correct",
+      "reason": "The answer identifies Disclosure Requirement E1-6, Gross Scopes 1, 2, 3 and Total GHG emissions, matching the reference; the added detail about metric tonnes of CO2eq is accurate and does not contradict the source."
+    },
+    "q11": {
+      "verdict": "correct",
+      "reason": "The answer states the core criterion (directly enabling other activities to make a substantial contribution to one or more environmental objectives) and also includes the no lock-in and life-cycle positive impact conditions from the reference, with nothing contradicting the source."
+    },
+    "q12": {
+      "verdict": "correct",
+      "reason": "The answer names turnover, CapEx and OpEx proportions associated with environmentally sustainable economic activities, matching the reference answer and the source passage."
+    },
+    "q13": {
+      "verdict": "correct",
+      "reason": "The answer states the EUR 150 million net turnover in the Union threshold for each of the last two consecutive financial years, matching the reference, and the extra details about subsidiaries/branches and the EUR 40 million branch threshold are consistent with Article 40a."
+    },
+    "q14": {
+      "verdict": "correct",
+      "reason": "The answer states that limited assurance is first required, with the auditor expressing an opinion on compliance, which matches the reference; the added progressive-approach remark is consistent with the CSRD."
+    },
+    "q15": {
+      "verdict": "correct",
+      "reason": "The answer states the deadline of 30 June 2023, matching the reference answer and the source passage."
+    },
+    "q16": {
+      "verdict": "correct",
+      "reason": "The answer states the Commission must review the standards at least every three years after their date of application, matching the reference answer and source passage."
+    },
+    "q17": {
+      "verdict": "correct",
+      "reason": "The answer identifies EFRAG (European Financial Reporting Advisory Group) as the provider of technical advice to the Commission, matching the reference and source passage."
+    },
+    "q18": {
+      "verdict": "correct",
+      "reason": "The answer states the long-term time horizon is more than 5 years from the end of the reporting period, matching the reference; the added paragraph citation does not contradict the source."
+    },
+    "q19": {
+      "verdict": "correct",
+      "reason": "The answer identifies Disclosure Requirement E1-1 as covering the transition plan for climate change mitigation, matching the reference answer and source."
+    },
+    "q20": {
+      "verdict": "correct",
+      "reason": "The answer states the 100-year time horizon and the most recent IPCC GWP values, matching the reference answer and the source passage."
+    },
+    "u01": {
+      "verdict": "correct",
+      "reason": "The question is unanswerable because the documents leave penalties to Member States and give no Danish fine amount, and the answer correctly declines with 'NOT IN SOURCES'."
+    },
+    "u02": {
+      "verdict": "correct",
+      "reason": "The question is unanswerable because ESRS E1 gives no numeric GWP for methane, and the answer correctly declines with 'NOT IN SOURCES'."
+    },
+    "u03": {
+      "verdict": "correct",
+      "reason": "The question is unanswerable from the documents, and the answer correctly declines with 'NOT IN SOURCES'."
+    },
+    "u04": {
+      "verdict": "correct",
+      "reason": "The question is unanswerable because ESRS S1 sets no specific wage level for Denmark, and the answer correctly declines with 'NOT IN SOURCES'."
+    },
+    "u05": {
+      "verdict": "correct",
+      "reason": "The question is unanswerable from the documents, and the answer correctly declines with 'NOT IN SOURCES'."
+    },
+    "u06": {
+      "verdict": "correct",
+      "reason": "The question is unanswerable because the documents name no tagging software, and the answer correctly declines with 'NOT IN SOURCES'."
+    },
+    "u07": {
+      "verdict": "correct",
+      "reason": "The question is unanswerable because the Taxonomy Regulation sets no minimum share for a fund label, and the answer correctly declines with 'NOT IN SOURCES'."
+    },
+    "u08": {
+      "verdict": "correct",
+      "reason": "The question is unanswerable because the documents contain rules rather than company-reported figures, and the answer correctly declines with 'NOT IN SOURCES'."
+    },
+    "u09": {
+      "verdict": "correct",
+      "reason": "The question is unanswerable from the corpus because later amendments are not included, and the answer correctly declines with 'NOT IN SOURCES'."
+    },
+    "u10": {
+      "verdict": "correct",
+      "reason": "The question is unanswerable from the documents, and the answer correctly declines with 'NOT IN SOURCES'."
+    }
+  }
+}

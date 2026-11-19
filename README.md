@@ -14,7 +14,7 @@ one change to it.
 | Config | Right passage found | Right answer given | Unanswerable declined | Spend |
 |---|---|---|---|---|
 | baseline (TF-IDF) | 15 / 20 | 17 / 20 | 9 / 10 | 0.041 USD (answers + judge) |
-| **hybrid (kept)** | **17 / 20** | **20 / 20** | **10 / 10** | 0.009 USD + judge |
+| **hybrid (kept)** | **17 / 20** | **20 / 20** | **10 / 10** | 0.040 USD (answers + judge) |
 
 The Claude judge agrees with the author's hand grades on **22 of 24** baseline answers
 (92 %, Cohen's kappa 0.70). Hybrid search is kept: it is better on all three scores.
@@ -124,7 +124,7 @@ baseline answers: all 20 answerable and u01, u02, u04, u09.
 | Judge run | Answers right | Unanswerable declined | Agrees with hand grades | Cost (batch) |
 |---|---|---|---|---|
 | baseline | 17 / 20 | 9 / 10 | **22 / 24 (92 %), kappa 0.70** | 0.032 USD |
-| hybrid | batch still processing at this commit | | no hand grades | |
+| hybrid | 20 / 20 | 10 / 10 | no hand grades | 0.031 USD |
 
 The keyword script agreed with the hand grades on 24 of 24 here. That is luck in the
 question design (short factual answers) rather than proof the script is enough; the judge
@@ -139,9 +139,10 @@ reviewed the drafts, decided the three close calls (q04, q07, u09) and accepted 
 | Run | Tokens in / out | USD |
 |---|---|---|
 | baseline answers (Haiku 5.5) | 67,465 / 4,260 | 0.0089 |
-| baseline judge (Sonnet 5.5, batch) | from `runs/baseline_judge.json` | 0.0320 |
+| baseline judge (Sonnet 5.5, batch) | 20,268 / 2,353 | 0.0320 |
 | hybrid answers (Haiku 5.5) | 68,047 / 3,751 | 0.0087 |
-| hybrid judge (Sonnet 5.5, batch) | pending | pending |
+| hybrid judge (Sonnet 5.5, batch) | 20,260 / 2,128 | 0.0309 |
+| **total** | | **0.0805** |
 
 Prices from Anthropic's pricing page on 2026-11-19; `python run.py` recomputes them from
 the saved token counts.
