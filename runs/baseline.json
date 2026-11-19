@@ -3,10 +3,10 @@
   "search": "tfidf",
   "k": 5,
   "model": "claude-haiku-5-5",
-  "time_utc": "2026-11-19T01:42:02+00:00",
-  "input_tokens": 67465,
-  "output_tokens": 4260,
-  "cost_usd": 0.008877,
+  "time_utc": "2026-11-19T10:18:32+00:00",
+  "input_tokens": 89691,
+  "output_tokens": 6526,
+  "cost_usd": 0.012232,
   "rows": [
     {
       "id": "q01",
@@ -487,6 +487,176 @@
       "output_tokens": 12,
       "cost_usd": 0.00025820000000000004,
       "seconds": 0.68
+    },
+    {
+      "id": "q21",
+      "retrieved": [
+        "taxonomy#0053",
+        "taxonomy#0011",
+        "taxonomy#0007",
+        "taxonomy#0056",
+        "taxonomy#0009"
+      ],
+      "answer": "An economic activity must not significantly harm any of the environmental objectives in Article 9, must be carried out in compliance with the minimum safeguards in Article 18, and must meet the technical screening criteria set by the Commission [1]. The passage begins partway through the list, so the first condition, which is presumably substantial contribution to an environmental objective, is not shown.",
+      "stop_reason": "end_turn",
+      "input_tokens": 2165,
+      "output_tokens": 326,
+      "cost_usd": 0.0003795,
+      "seconds": 2.55,
+      "added_utc": "2026-11-19T10:18:32+00:00"
+    },
+    {
+      "id": "q22",
+      "retrieved": [
+        "taxonomy#0060",
+        "taxonomy#0033",
+        "taxonomy#0032",
+        "taxonomy#0062",
+        "taxonomy#0058"
+      ],
+      "answer": "An activity with no technologically and economically feasible low-carbon alternative can qualify if it supports the transition to a climate-neutral economy consistent with limiting warming to 1.5°C, and it has greenhouse gas emission levels matching the best sector performance, does not hamper low-carbon alternatives, and does not lock in carbon-intensive assets [1]. Transitional activities are also expected to have emissions substantially lower than the sector or industry average and a credible path towards climate neutrality [2].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2233,
+      "output_tokens": 334,
+      "cost_usd": 0.0003903,
+      "seconds": 1.99,
+      "added_utc": "2026-11-19T10:18:32+00:00"
+    },
+    {
+      "id": "q23",
+      "retrieved": [
+        "taxonomy#0042",
+        "csrd#0135",
+        "esrs#0224",
+        "esrs#0193",
+        "taxonomy#0091"
+      ],
+      "answer": "The Member State Expert Group on Sustainable Finance is the expert body in the passages. It advises the Commission on the technical screening criteria, and the Commission informs Member States through its meetings [5]. The passages do not expressly say who establishes the group.",
+      "stop_reason": "end_turn",
+      "input_tokens": 2207,
+      "output_tokens": 374,
+      "cost_usd": 0.00040770000000000004,
+      "seconds": 3.57,
+      "added_utc": "2026-11-19T10:18:32+00:00"
+    },
+    {
+      "id": "q24",
+      "retrieved": [
+        "csrd#0126",
+        "csrd#0127",
+        "csrd#0026",
+        "csrd#0158",
+        "csrd#0027"
+      ],
+      "answer": "Listed small and medium-sized undertakings may opt out during a two-year transitional period that follows 1 January 2026, so the opt-out covers financial years starting before 1 January 2028 [5][2]. The passages do not state a separate end date for the opt-out.",
+      "stop_reason": "end_turn",
+      "input_tokens": 2190,
+      "output_tokens": 406,
+      "cost_usd": 0.000422,
+      "seconds": 2.44,
+      "added_utc": "2026-11-19T10:18:32+00:00"
+    },
+    {
+      "id": "q25",
+      "retrieved": [
+        "csrd#0123",
+        "csrd#0046",
+        "esrs#0037",
+        "esrs#0069",
+        "esrs#0040"
+      ],
+      "answer": "The company may do so for the first three years: the transitional provisions apply for the first three years of its sustainability reporting under the ESRS [4], or of applying the Member State measures under the Directive [1][2].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2030,
+      "output_tokens": 154,
+      "cost_usd": 0.00028,
+      "seconds": 1.28,
+      "added_utc": "2026-11-19T10:18:32+00:00"
+    },
+    {
+      "id": "q26",
+      "retrieved": [
+        "esrs#0043",
+        "esrs#0044",
+        "esrs#0045",
+        "esrs#0292",
+        "esrs#0709"
+      ],
+      "answer": "The short-term time horizon is the period the undertaking adopts as its reporting period in its financial statements, measured as of the end of the reporting period [1].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2185,
+      "output_tokens": 182,
+      "cost_usd": 0.0003095,
+      "seconds": 1.36,
+      "added_utc": "2026-11-19T10:18:32+00:00"
+    },
+    {
+      "id": "q27",
+      "retrieved": [
+        "esrs#0467",
+        "esrs#0683",
+        "esrs#0634",
+        "esrs#0584",
+        "esrs#0446"
+      ],
+      "answer": "NOT IN SOURCES",
+      "stop_reason": "end_turn",
+      "input_tokens": 2058,
+      "output_tokens": 93,
+      "cost_usd": 0.0002523,
+      "seconds": 1.01,
+      "added_utc": "2026-11-19T10:18:32+00:00"
+    },
+    {
+      "id": "q28",
+      "retrieved": [
+        "esrs#0097",
+        "esrs#0100",
+        "esrs#0101",
+        "esrs#0099",
+        "esrs#0098"
+      ],
+      "answer": "Undertakings or groups that do not exceed an average of 750 employees during the financial year (on a consolidated basis where applicable) may omit the scope 3 and total GHG emissions datapoints in the first year of preparing their sustainability statement [1].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2406,
+      "output_tokens": 190,
+      "cost_usd": 0.0003356,
+      "seconds": 1.22,
+      "added_utc": "2026-11-19T10:18:32+00:00"
+    },
+    {
+      "id": "q29",
+      "retrieved": [
+        "esrs#0185",
+        "esrs#0276",
+        "esrs#0274",
+        "esrs#0214",
+        "esrs#0186"
+      ],
+      "answer": "Disclosure Requirement E1-7, \"GHG removals and GHG mitigation projects financed through carbon credits,\" covers both topics [1][3].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2430,
+      "output_tokens": 195,
+      "cost_usd": 0.0003405,
+      "seconds": 1.34,
+      "added_utc": "2026-11-19T10:18:32+00:00"
+    },
+    {
+      "id": "u11",
+      "retrieved": [
+        "esrs#0823",
+        "esrs#0278",
+        "esrs#0185",
+        "esrs#0287",
+        "esrs#0215"
+      ],
+      "answer": "NOT IN SOURCES",
+      "stop_reason": "end_turn",
+      "input_tokens": 2322,
+      "output_tokens": 12,
+      "cost_usd": 0.00023820000000000002,
+      "seconds": 0.73,
+      "added_utc": "2026-11-19T10:18:32+00:00"
     }
   ]
 }

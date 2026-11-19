@@ -67,9 +67,17 @@ def build_requests(run: dict, questions: dict) -> list:
     ]
 
 
-def main(config: str, poll_seconds: int = 20) -> None:
+def main(config: str, poll_seconds: int = 20, only_missing: bool = False) -> None:
+    """only_missing: grade only answers without a verdict and merge them into the saved file."""
     require_key()
     run = json.loads((RUNS / f"{config}.json").read_text(encoding="utf-8"))
+    jpath = RUNS / f"{config}_judge.json"
+    old = json.loads(jpath.read_text(encoding="utf-8")) if only_missing and jpath.exists() else None
+    if old:
+        run = {**run, "rows": [r for r in run["rows"] if r["id"] not in old["verdicts"]]}
+        if not run["rows"]:
+            print(f"judge {config}: nothing new to grade")
+            return
     questions = {q["id"]: q for q in json.loads(TESTSET.read_text(encoding="utf-8"))}
     client = anthropic.Anthropic()
 
@@ -97,10 +105,15 @@ def main(config: str, poll_seconds: int = 20) -> None:
         text = next(b.text for b in msg.content if b.type == "text")
         verdicts[res.custom_id] = json.loads(text)
 
+    new_cost = round(cost_usd(JUDGE, tin, tout, batch=True), 6)
+    if old:
+        print(f"judge {config}: added {len(verdicts)} verdicts, {tin:,} in / {tout:,} out tokens, {new_cost:.4f} USD")
+        verdicts = {**old["verdicts"], **verdicts}
+        tin, tout = old["input_tokens"] + tin, old["output_tokens"] + tout
     out = {
         "config": config,
         "judge_model": JUDGE,
-        "batch_id": batch.id,
+        "batch_id": batch.id if not old else [*([old["batch_id"]] if isinstance(old["batch_id"], str) else old["batch_id"]), batch.id],
         "input_tokens": tin,
         "output_tokens": tout,
         "cost_usd": round(cost_usd(JUDGE, tin, tout, batch=True), 6),

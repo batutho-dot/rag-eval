@@ -3,10 +3,10 @@
   "search": "hybrid",
   "k": 5,
   "model": "claude-haiku-5-5",
-  "time_utc": "2026-11-19T01:47:01+00:00",
-  "input_tokens": 68047,
-  "output_tokens": 3751,
-  "cost_usd": 0.00868,
+  "time_utc": "2026-11-19T10:22:31+00:00",
+  "input_tokens": 90187,
+  "output_tokens": 5935,
+  "cost_usd": 0.011986,
   "rows": [
     {
       "id": "q01",
@@ -487,6 +487,176 @@
       "output_tokens": 12,
       "cost_usd": 0.0002584,
       "seconds": 0.65
+    },
+    {
+      "id": "q21",
+      "retrieved": [
+        "taxonomy#0053",
+        "taxonomy#0027",
+        "taxonomy#0052",
+        "taxonomy#0007",
+        "taxonomy#0013"
+      ],
+      "answer": "An economic activity qualifies as environmentally sustainable only if it (a) contributes substantially to one or more environmental objectives, (b) does not significantly harm any environmental objective, (c) is carried out in compliance with the minimum safeguards in Article 18, and (d) complies with Commission-established technical screening criteria [1][3].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2193,
+      "output_tokens": 264,
+      "cost_usd": 0.00035130000000000003,
+      "seconds": 2.02,
+      "added_utc": "2026-11-19T10:22:31+00:00"
+    },
+    {
+      "id": "q22",
+      "retrieved": [
+        "taxonomy#0060",
+        "taxonomy#0058",
+        "taxonomy#0033",
+        "taxonomy#0077",
+        "taxonomy#0062"
+      ],
+      "answer": "An activity with no technologically and economically feasible low-carbon alternative can qualify if it supports the transition to a climate-neutral economy consistent with limiting warming to 1.5°C, and it has greenhouse gas emission levels matching the best performance in its sector, does not hamper low-carbon alternatives, and does not lock in carbon-intensive assets given their economic lifetime [1].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2206,
+      "output_tokens": 342,
+      "cost_usd": 0.00039160000000000003,
+      "seconds": 1.79,
+      "added_utc": "2026-11-19T10:22:31+00:00"
+    },
+    {
+      "id": "q23",
+      "retrieved": [
+        "taxonomy#0042",
+        "esrs#0194",
+        "taxonomy#0044",
+        "esrs#0224",
+        "csrd#0055"
+      ],
+      "answer": "The passages identify the Member State Expert Group on Sustainable Finance as the body \"referred to in Regulation (EU) 2020/852,\" which is the Taxonomy Regulation [5]. They do not explicitly say that the Commission sets it up.",
+      "stop_reason": "end_turn",
+      "input_tokens": 2288,
+      "output_tokens": 393,
+      "cost_usd": 0.00042530000000000004,
+      "seconds": 2.45,
+      "added_utc": "2026-11-19T10:22:31+00:00"
+    },
+    {
+      "id": "q24",
+      "retrieved": [
+        "csrd#0126",
+        "csrd#0127",
+        "csrd#0027",
+        "csrd#0026",
+        "csrd#0028"
+      ],
+      "answer": "Listed small and medium-sized undertakings may opt out during a two-year transitional period that follows 1 January 2026, which covers financial years starting before 1 January 2028 [3][5]. The passages state this period for listed SMEs, and the 1 January 2028 cutoff also appears in the derogation for SME public-interest entities [1][2].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2127,
+      "output_tokens": 372,
+      "cost_usd": 0.00039870000000000004,
+      "seconds": 2.2,
+      "added_utc": "2026-11-19T10:22:31+00:00"
+    },
+    {
+      "id": "q25",
+      "retrieved": [
+        "csrd#0046",
+        "esrs#0069",
+        "csrd#0123",
+        "esrs#0040",
+        "esrs#0041"
+      ],
+      "answer": "For the first three years, a company that cannot obtain all the necessary value chain information must explain the efforts it made, the reasons the information could not be obtained, and its plans to obtain it in the future [1][3]. The ESRS transitional provision sets the same three-year period for sustainability reporting under the ESRS [2].",
+      "stop_reason": "end_turn",
+      "input_tokens": 1988,
+      "output_tokens": 173,
+      "cost_usd": 0.0002853,
+      "seconds": 1.58,
+      "added_utc": "2026-11-19T10:22:31+00:00"
+    },
+    {
+      "id": "q26",
+      "retrieved": [
+        "esrs#0044",
+        "esrs#0043",
+        "esrs#0045",
+        "esrs#0113",
+        "esrs#0709"
+      ],
+      "answer": "The short-term time horizon is the period the undertaking adopts as its reporting period in its financial statements, measured as of the end of the reporting period [2].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2164,
+      "output_tokens": 141,
+      "cost_usd": 0.0002869,
+      "seconds": 1.06,
+      "added_utc": "2026-11-19T10:22:31+00:00"
+    },
+    {
+      "id": "q27",
+      "retrieved": [
+        "esrs#0446",
+        "esrs#0586",
+        "esrs#0027",
+        "esrs#0298",
+        "esrs#0634"
+      ],
+      "answer": "For an actual negative impact, materiality is based on severity; for a potential negative impact, it is based on both severity and likelihood. Severity is assessed by scale, scope, and irremediable character, and for a potential negative human rights impact, severity takes precedence over likelihood [3].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2145,
+      "output_tokens": 173,
+      "cost_usd": 0.000301,
+      "seconds": 1.42,
+      "added_utc": "2026-11-19T10:22:31+00:00"
+    },
+    {
+      "id": "q28",
+      "retrieved": [
+        "esrs#0097",
+        "esrs#0841",
+        "esrs#0267",
+        "esrs#0209",
+        "esrs#0042"
+      ],
+      "answer": "Undertakings or groups that do not exceed an average of 750 employees during the financial year (on a consolidated basis where applicable) may omit the datapoints on Scope 3 emissions and total GHG emissions in the first year of preparing their sustainability statement [1].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2359,
+      "output_tokens": 156,
+      "cost_usd": 0.0003139,
+      "seconds": 1.09,
+      "added_utc": "2026-11-19T10:22:31+00:00"
+    },
+    {
+      "id": "q29",
+      "retrieved": [
+        "esrs#0185",
+        "esrs#0276",
+        "esrs#0212",
+        "esrs#0275",
+        "esrs#0214"
+      ],
+      "answer": "Disclosure Requirement E1-7 covers GHG removals and GHG mitigation projects financed through carbon credits. [1][3]",
+      "stop_reason": "end_turn",
+      "input_tokens": 2370,
+      "output_tokens": 47,
+      "cost_usd": 0.0002605,
+      "seconds": 0.84,
+      "added_utc": "2026-11-19T10:22:31+00:00"
+    },
+    {
+      "id": "u11",
+      "retrieved": [
+        "esrs#0823",
+        "esrs#0278",
+        "esrs#0215",
+        "esrs#0185",
+        "esrs#0824"
+      ],
+      "answer": "NOT IN SOURCES",
+      "stop_reason": "end_turn",
+      "input_tokens": 2300,
+      "output_tokens": 123,
+      "cost_usd": 0.0002915,
+      "seconds": 1.41,
+      "added_utc": "2026-11-19T10:22:31+00:00"
     }
   ]
 }

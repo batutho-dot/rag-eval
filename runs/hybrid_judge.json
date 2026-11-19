@@ -1,10 +1,13 @@
 {
   "config": "hybrid",
   "judge_model": "claude-sonnet-5-5",
-  "batch_id": "msgbatch_019HmjAqmX21t1sFAnz7GkBK",
-  "input_tokens": 20260,
-  "output_tokens": 2128,
-  "cost_usd": 0.0309,
+  "batch_id": [
+    "msgbatch_019HmjAqmX21t1sFAnz7GkBK",
+    "msgbatch_0194jcWU7m1j7hejp4VgzLzt"
+  ],
+  "input_tokens": 27516,
+  "output_tokens": 3013,
+  "cost_usd": 0.042581,
   "verdicts": {
     "q01": {
       "verdict": "correct",
@@ -86,6 +89,42 @@
       "verdict": "correct",
       "reason": "The answer states the 100-year time horizon and the most recent IPCC GWP values, matching the reference answer and the source passage."
     },
+    "q21": {
+      "verdict": "correct",
+      "reason": "The answer lists all four conditions in the reference answer (substantial contribution, no significant harm, minimum safeguards, technical screening criteria) and adds only accurate detail, such as the Article 18 reference."
+    },
+    "q22": {
+      "verdict": "correct",
+      "reason": "The answer states the core condition (supports transition to a climate-neutral economy consistent with 1.5°C pathway) and adds the further conditions from Article 10(2) accurately, with no contradiction of the source."
+    },
+    "q23": {
+      "verdict": "incorrect",
+      "reason": "The reference answer is the Platform on Sustainable Finance, but the answer names the Member State Expert Group on Sustainable Finance and never mentions the Platform, so it does not state the required substance."
+    },
+    "q24": {
+      "verdict": "correct",
+      "reason": "The answer states the opt-out applies to financial years starting before 1 January 2028, matching the reference; the 'two-year transitional period following 1 January 2026' framing is consistent with the 2026 application date and does not contradict the source."
+    },
+    "q25": {
+      "verdict": "correct",
+      "reason": "The answer states the three-year period for explaining efforts when value chain information cannot be obtained, matching the reference; the added detail about explaining reasons and future plans is consistent with the CSRD/ESRS."
+    },
+    "q26": {
+      "verdict": "correct",
+      "reason": "The answer states that the short-term time horizon is the period the undertaking adopts as its reporting period in its financial statements, matching the reference; the added 'measured as of the end of the reporting period' is consistent with ESRS 1 and does not contradict the source."
+    },
+    "q27": {
+      "verdict": "correct",
+      "reason": "The answer states that actual negative impacts are judged on severity and potential ones on severity and likelihood, matching the reference; the added details on scale, scope, irremediable character and severity taking precedence for human rights impacts are consistent with ESRS 1 and do not contradict the passage."
+    },
+    "q28": {
+      "verdict": "correct",
+      "reason": "The answer states that undertakings or groups averaging no more than 750 employees may omit Scope 3 emissions datapoints in the first year, matching the reference; the added mention of total GHG emissions is consistent with ESRS E1-6 phase-in provisions and does not contradict the source."
+    },
+    "q29": {
+      "verdict": "correct",
+      "reason": "The answer identifies Disclosure Requirement E1-7 as covering GHG removals and GHG mitigation projects financed through carbon credits, matching the reference and source."
+    },
     "u01": {
       "verdict": "correct",
       "reason": "The question is unanswerable because the documents leave penalties to Member States and give no Danish fine amount, and the answer correctly declines with 'NOT IN SOURCES'."
@@ -125,6 +164,10 @@
     "u10": {
       "verdict": "correct",
       "reason": "The question is unanswerable from the documents, and the answer correctly declines with 'NOT IN SOURCES'."
+    },
+    "u11": {
+      "verdict": "correct",
+      "reason": "The question is unanswerable because ESRS E1 (E1-8) sets no required internal carbon price level, and the answer correctly declines with 'NOT IN SOURCES'."
     }
   }
 }

@@ -12,20 +12,18 @@ This repo evaluates the pipeline from
 [rag-from-scratch](https://github.com/batutho-dot/rag-from-scratch) (same author) and tests
 one change to it.
 
-**Answer (30 questions, one run per config, 2026-11-19):**
+**Answer (40 questions, one run per config, 2026-11-19):**
 
 | Config | Right passage found | Right answer given | Unanswerable declined | Spend |
 |---|---|---|---|---|
-| baseline (TF-IDF) | 15 / 20 | 17 / 20 | 9 / 10 | 0.041 USD (answers + judge) |
-| **hybrid (kept)** | **17 / 20** | **20 / 20** | **10 / 10** | 0.040 USD (answers + judge) |
+| baseline (TF-IDF) | 21 / 29 (first 30 questions: 15 / 20) | 24 / 29 (17 / 20) | 10 / 11 (9 / 10) | 0.056 USD |
+| **hybrid (kept)** | **25 / 29** (17 / 20) | **28 / 29** (20 / 20) | **11 / 11** (10 / 10) | 0.055 USD |
 
 The Claude judge agrees with the author's hand grades on **22 of 24** baseline answers
-(92 %, Cohen's kappa 0.70). Hybrid search is kept: it is better on all three scores.
-
-The test set has since grown to **40 questions** (29 answerable, 11 unanswerable). On all 40,
-right passage found is **21 / 29** for baseline and **25 / 29** for hybrid (no model
-involved). The answer, refusal and judge scores above are still from the first 30 questions:
-the 10 new ones have not been sent to Claude yet.
+(92 %, Cohen's kappa 0.70). Hybrid search is kept: it is better on all three scores, on the
+first 30 questions and on all 40. The test set grew from 30 to 40 questions on the same day;
+the first 30 answers were kept as they were and only the 10 new questions were answered and
+judged (`python run.py add <config>`), so the hand grades still refer to the same answers.
 
 ## The ideas, in plain words
 
@@ -212,13 +210,16 @@ Sustainable Finance).
 
 | Config | Right answer given | Unanswerable declined | Answerable falsely declined |
 |---|---|---|---|
-| baseline | 17 / 20 | 9 / 10 | 2 / 20 (q01, q10) |
-| hybrid | **20 / 20** | **10 / 10** | 0 / 20 |
+| baseline, first 30 | 17 / 20 | 9 / 10 | 2 / 20 (q01, q10) |
+| hybrid, first 30 | 20 / 20 | 10 / 10 | 0 / 20 |
+| baseline, all 40 | 24 / 29 | 10 / 11 | 3 / 29 (q01, q10, q27) |
+| hybrid, all 40 | **28 / 29** | **11 / 11** | 0 / 29 |
 
 Reading it: baseline's two false declines, q01 and q10, are exactly two of its retrieval
 misses. The model never saw the answer and said so, which is the behaviour wanted. Hybrid
 search found both passages and the script scores both answers right. Its one unanswerable slip (u09) also
-went away (see below).
+went away (see below). The 10 new questions repeat it: baseline declines q27, a retrieval
+miss that hybrid finds and answers. Both configs get q23 wrong (see What failed).
 
 ### The judge, checked against hand grades
 
@@ -227,8 +228,16 @@ baseline answers: all 20 answerable and u01, u02, u04, u09.
 
 | Judge run | Answers right | Unanswerable declined | Agrees with hand grades | Cost (batch) |
 |---|---|---|---|---|
-| baseline | 17 / 20 | 9 / 10 | **22 / 24 (92 %), kappa 0.70** | 0.032 USD |
-| hybrid | 20 / 20 | 10 / 10 | no hand grades | 0.031 USD |
+| baseline, first 30 | 17 / 20 | 9 / 10 | **22 / 24 (92 %), kappa 0.70** | 0.032 USD |
+| hybrid, first 30 | 20 / 20 | 10 / 10 | no hand grades | 0.031 USD |
+| baseline, all 40 | 23 / 29 | 10 / 11 | (same 24 hand grades) | 0.044 USD |
+| hybrid, all 40 | 28 / 29 | 11 / 11 | no hand grades | 0.043 USD |
+
+On the 10 new questions the judge and the keyword script disagree once: baseline q21. The
+answer lists three of the four Article 3 conditions and only guesses at the first
+("presumably"); the script finds all four terms in the hedged text, the judge marks it
+incorrect. The judge's reading is the stricter and, here, the better one. No hand grades
+were made for the new questions.
 
 The keyword script agreed with the hand grades on 24 of 24 here. That is luck in the
 question design (short factual answers) rather than proof the script is enough; the judge
@@ -246,12 +255,25 @@ reviewed the drafts, decided the three close calls (q04, q07, u09) and accepted 
 | baseline judge (Sonnet 5.5, batch) | 20,268 / 2,353 | 0.0320 |
 | hybrid answers (Haiku 5.5) | 68,047 / 3,751 | 0.0087 |
 | hybrid judge (Sonnet 5.5, batch) | 20,260 / 2,128 | 0.0309 |
-| **total** | | **0.0805** |
+| 10 new questions, baseline answers | 22,226 / 2,266 | 0.0034 |
+| 10 new questions, baseline judge (batch) | 7,153 / 868 | 0.0115 |
+| 10 new questions, hybrid answers | 22,140 / 2,184 | 0.0033 |
+| 10 new questions, hybrid judge (batch) | 7,256 / 885 | 0.0117 |
+| **total** | | **0.1104** |
 
 Prices from Anthropic's pricing page on 2026-11-19; `python run.py` recomputes them from
 the saved token counts.
 
 ## What failed
+
+**q23, both configs answer with the wrong body.** Asked which expert body the Commission
+sets up under the Taxonomy Regulation, both name the Member State Expert Group on Sustainable
+Finance, which the regulation also mentions, instead of the Platform on Sustainable Finance
+(Article 20). Neither search retrieved Article 20, and the retrieved passages did name the
+other group. Both answers add that the passages do not say who set it up, so the model was
+uneasy but still answered. The question's wording may also be too loose: "sets up" fits
+Article 20 best, but a reader could argue for the other group. It stays in the set as a
+recorded failure.
 
 **The judge disagreed with the hand grades twice, once in each direction.**
 

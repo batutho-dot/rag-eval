@@ -63,7 +63,9 @@ def answer(client: anthropic.Anthropic, question: str, passages: list[str]) -> d
     }
 
 
-def main(config: str) -> None:
+def main(config: str, only_missing: bool = False) -> None:
+    """only_missing: answer only the questions the saved run lacks and merge them in, so the
+    answers already graded (by hand and by the judge) are kept as they are."""
     require_key()
     cfg = CONFIGS[config]
     chunks = load_chunks(DATA_TEXT)
@@ -71,8 +73,13 @@ def main(config: str) -> None:
     index = build_index(cfg["search"], [c.text for c in chunks])
     client = anthropic.Anthropic()  # reads ANTHROPIC_API_KEY from the environment
 
+    path = RUNS / f"{config}.json"
+    old = json.loads(path.read_text(encoding="utf-8")) if only_missing and path.exists() else None
+    done = {r["id"] for r in old["rows"]} if old else set()
     rows = []
     for q in questions:
+        if q["id"] in done:
+            continue
         hits = index.search(q["question"], cfg["k"])
         passages = [chunks[i].text for i, _ in hits]
         row = {"id": q["id"], "retrieved": [chunks[i].id for i, _ in hits]}
@@ -82,6 +89,11 @@ def main(config: str) -> None:
             raise SystemExit(f"spend passed {MAX_RUN_USD} USD after {len(rows)} questions; stopped, nothing saved")
         print(f"  {q['id']}  {row['output_tokens']:>5} out  {row['answer'][:90]!r}")
 
+    new_cost = round(sum(r["cost_usd"] for r in rows), 6)
+    if old:
+        for r in rows:
+            r["added_utc"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+        rows = old["rows"] + rows
     run = {
         "config": config,
         **cfg,
@@ -94,5 +106,7 @@ def main(config: str) -> None:
     }
     RUNS.mkdir(exist_ok=True)
     (RUNS / f"{config}.json").write_text(json.dumps(run, indent=2, ensure_ascii=False), encoding="utf-8")
+    if old:
+        print(f"{config}: added {len(rows) - len(done)} answers for {new_cost:.4f} USD")
     print(f"{config}: {len(rows)} answers, {run['input_tokens']:,} in / {run['output_tokens']:,} out tokens, "
           f"{run['cost_usd']:.4f} USD -> runs/{config}.json")
