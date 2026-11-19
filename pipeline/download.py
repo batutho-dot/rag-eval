@@ -1,6 +1,6 @@
 """Download the EUR-Lex HTML texts into data/raw/ and turn them into plain text in data/text/.
 
-Run: python -m rag.download
+Run: python -m pipeline.download
 """
 
 import urllib.request

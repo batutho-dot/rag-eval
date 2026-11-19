@@ -1,5 +1,8 @@
 # rag-eval: does a small RAG pipeline on EU sustainability law tell the truth?
 
+> **Part of a series on RAG over EU sustainability law:** [rag-from-scratch](https://github.com/batutho-dot/rag-from-scratch) (retrieval built by hand) → **rag-eval** (measured: three scores and a Claude judge) → [rag-claude-citations](https://github.com/batutho-dot/rag-claude-citations) (API-native: citations and caching)\
+> This is part 2. It scores the pipeline from [rag-from-scratch](https://github.com/batutho-dot/rag-from-scratch); next, [rag-claude-citations](https://github.com/batutho-dot/rag-claude-citations) drops the hand-built search for the Claude API.
+
 **Question:** when a retrieval-augmented pipeline answers questions about the EU Taxonomy,
 the CSRD and the ESRS, how often does it (1) find the passage that holds the answer, (2) give
 the right answer, and (3) say "not in the sources" when the texts cannot answer? And can a
