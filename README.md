@@ -9,9 +9,15 @@ This repo evaluates the pipeline from
 [rag-from-scratch](https://github.com/batutho-dot/rag-from-scratch) (same author) and tests
 one change to it.
 
-**Status:** code, test set and checks are done. The paid runs (Claude answers and the
-Claude judge) have not been made yet, so there are no answer or judge scores below yet. The
-retrieval score needs no model and is measured.
+**Answer (30 questions, one run per config, 2026-11-19):**
+
+| Config | Right passage found | Right answer given | Unanswerable declined | Spend |
+|---|---|---|---|---|
+| baseline (TF-IDF) | 15 / 20 | 17 / 20 | 9 / 10 | 0.041 USD (answers + judge) |
+| **hybrid (kept)** | **17 / 20** | **20 / 20** | **10 / 10** | 0.009 USD + judge |
+
+The Claude judge agrees with the author's hand grades on **22 of 24** baseline answers
+(92 %, Cohen's kappa 0.70). Hybrid search is kept: it is better on all three scores.
 
 ## The ideas, in plain words
 
@@ -98,13 +104,77 @@ All questions were drafted with Claude from the texts and approved by the author
 | baseline (TF-IDF) | **15 / 20** | q01, q04, q10, q14, q17 |
 | hybrid | **17 / 20** | q04, q14, q17 |
 
-### Answers, refusals, judge and agreement
+### Answers and refusals (scored by the script)
 
-Not run yet: pending the first paid run.
+| Config | Right answer given | Unanswerable declined | Answerable falsely declined |
+|---|---|---|---|
+| baseline | 17 / 20 | 9 / 10 | 2 / 20 (q01, q10) |
+| hybrid | **20 / 20** | **10 / 10** | 0 / 20 |
+
+Reading it: baseline's two false declines, q01 and q10, are exactly two of its retrieval
+misses. The model never saw the answer and said so, which is the behaviour wanted. Hybrid
+search found both passages and the script scores both answers right. Its one unanswerable slip (u09) also
+went away (see below).
+
+### The judge, checked against hand grades
+
+`claude-sonnet-5-5` graded every answer through the Batches API. Hand grades exist for 24
+baseline answers: all 20 answerable and u01, u02, u04, u09.
+
+| Judge run | Answers right | Unanswerable declined | Agrees with hand grades | Cost (batch) |
+|---|---|---|---|---|
+| baseline | 17 / 20 | 9 / 10 | **22 / 24 (92 %), kappa 0.70** | 0.032 USD |
+| hybrid | batch still processing at this commit | | no hand grades | |
+
+The keyword script agreed with the hand grades on 24 of 24 here. That is luck in the
+question design (short factual answers) rather than proof the script is enough; the judge
+earns its place on answers phrased differently from the reference.
+
+How the hand grades were made: a Claude Opus model drafted a grade and a reason for each of
+the 24 answers using the judge's rubric, without seeing the judge's verdicts. The author
+reviewed the drafts, decided the three close calls (q04, q07, u09) and accepted the rest. They are in `hand_grades.json` with the reasons.
+
+### Spend
+
+| Run | Tokens in / out | USD |
+|---|---|---|
+| baseline answers (Haiku 5.5) | 67,465 / 4,260 | 0.0089 |
+| baseline judge (Sonnet 5.5, batch) | from `runs/baseline_judge.json` | 0.0320 |
+| hybrid answers (Haiku 5.5) | 68,047 / 3,751 | 0.0087 |
+| hybrid judge (Sonnet 5.5, batch) | pending | pending |
+
+Prices from Anthropic's pricing page on 2026-11-19; `python run.py` recomputes them from
+the saved token counts.
 
 ## What failed
 
-To be filled from the runs.
+**The judge disagreed with the hand grades twice, once in each direction.**
+
+- *q04, too lenient.* The answer opened with "the passages do not state a two kinds
+  requirement directly" and then described impact and financial materiality. The judge
+  counted that as the reference answer in other words; the hand grade did not, because the
+  answer half-declines and never states the two kinds of information.
+- *q18, wrong on a fact.* The answer said "more than 5 years" (right) and cited ESRS 1
+  "paragraph 78" for an extra breakdown of the long term. The judge marked it incorrect,
+  calling the paragraph reference "likely inaccurate". It is accurate: paragraph 78 of ESRS 1
+  follows the time-horizon definitions and says exactly that. The judge only saw the one
+  evidence passage and guessed about the rest. A judge given more of the source would likely
+  not make this mistake; that was not tested.
+
+**The "right passage found" check undercounts.** q14 and q17 are retrieval misses for both
+configs, yet both configs answered them correctly from other passages that state the same
+fact (a recital, another paragraph). The test accepts only the passages listed per question,
+the same problem project 2 had with q07. Listing more accepted passages would raise both
+configs' first score; it was left as is so the two runs stay comparable.
+
+**u09, the baseline answered an unanswerable question.** Asked to which year a later
+amendment postponed reporting for large non-listed companies, it gave 2025: the original
+date in the 2022 CSRD, not a postponement. It did add that the passages do not call it a
+postponement, but it still gave a year, so it counts as not declined. With hybrid search the
+retrieved passages were different and it declined.
+
+**q04 is still the hardest question.** Hybrid retrieval also misses its passage, but the
+script scores its answer right, from neighbouring CSRD text (not hand-graded).
 
 ## Limits
 
@@ -116,7 +186,10 @@ To be filled from the runs.
 - Unanswerable questions were checked against the texts by keyword search, not by reading
   every line.
 - Texts as first published in the Official Journal; later amendments are not included.
-- Language model answers vary from run to run; each config is run once.
+- Language model answers vary from run to run; each config is run once, so a difference of
+  one question between configs is within noise.
+- Hand grades cover the baseline run only, and were drafted by a model before the author's
+  review (see above), not written from scratch.
 
 ## Source and credit
 

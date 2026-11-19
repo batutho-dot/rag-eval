@@ -1,0 +1,492 @@
+{
+  "config": "baseline",
+  "search": "tfidf",
+  "k": 5,
+  "model": "claude-haiku-5-5",
+  "time_utc": "2026-11-19T01:42:02+00:00",
+  "input_tokens": 67465,
+  "output_tokens": 4260,
+  "cost_usd": 0.008877,
+  "rows": [
+    {
+      "id": "q01",
+      "retrieved": [
+        "taxonomy#0101",
+        "esrs#0058",
+        "taxonomy#0013",
+        "taxonomy#0054",
+        "taxonomy#0098"
+      ],
+      "answer": "NOT IN SOURCES",
+      "stop_reason": "end_turn",
+      "input_tokens": 2271,
+      "output_tokens": 167,
+      "cost_usd": 0.0003106,
+      "seconds": 1.6
+    },
+    {
+      "id": "q02",
+      "retrieved": [
+        "taxonomy#0080",
+        "taxonomy#0028",
+        "taxonomy#0027",
+        "taxonomy#0079",
+        "csrd#0049"
+      ],
+      "answer": "The minimum safeguards must ensure alignment with the OECD Guidelines for Multinational Enterprises and the UN Guiding Principles on Business and Human Rights [1]. They also cover the eight fundamental ILO conventions and the International Bill of Human Rights [1][2].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2255,
+      "output_tokens": 198,
+      "cost_usd": 0.0003245,
+      "seconds": 1.25
+    },
+    {
+      "id": "q03",
+      "retrieved": [
+        "taxonomy#0077",
+        "esrs#0743",
+        "esrs#0198",
+        "taxonomy#0061",
+        "esrs#0234"
+      ],
+      "answer": "An economic activity is considered to significantly harm climate change mitigation where it leads to significant greenhouse gas emissions, taking into account the life cycle of its products and services [1].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2293,
+      "output_tokens": 146,
+      "cost_usd": 0.00030230000000000003,
+      "seconds": 1.08
+    },
+    {
+      "id": "q04",
+      "retrieved": [
+        "esrs#0088",
+        "csrd#0069",
+        "esrs#0037",
+        "esrs#0087",
+        "csrd#0051"
+      ],
+      "answer": "The passages do not state a \"two kinds\" requirement directly. Passage 5 says the information must cover relevant information from each materiality perspective and all sustainability matters [5]. Under the double materiality approach, those perspectives include impact materiality (negative and positive material impacts) and financial materiality (material risks and opportunities) [1][4].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2179,
+      "output_tokens": 551,
+      "cost_usd": 0.0004934,
+      "seconds": 2.65
+    },
+    {
+      "id": "q05",
+      "retrieved": [
+        "csrd#0244",
+        "csrd#0018",
+        "csrd#0243",
+        "csrd#0246",
+        "csrd#0247"
+      ],
+      "answer": "Large public-interest entities with more than 500 employees must report for financial years starting on or after 1 January 2024. [3]",
+      "stop_reason": "end_turn",
+      "input_tokens": 2231,
+      "output_tokens": 265,
+      "cost_usd": 0.0003556,
+      "seconds": 1.56
+    },
+    {
+      "id": "q06",
+      "retrieved": [
+        "csrd#0214",
+        "csrd#0086",
+        "csrd#0087",
+        "csrd#0215",
+        "csrd#0221"
+      ],
+      "answer": "The Commission must adopt the delegated acts providing reasonable assurance standards no later than 1 October 2028 [1][3].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2179,
+      "output_tokens": 43,
+      "cost_usd": 0.00023940000000000002,
+      "seconds": 0.79
+    },
+    {
+      "id": "q07",
+      "retrieved": [
+        "csrd#0078",
+        "csrd#0077",
+        "csrd#0079",
+        "csrd#0081",
+        "esrs#0057"
+      ],
+      "answer": "Undertakings must prepare their management report in the electronic reporting format specified in Article 3 of Commission Delegated Regulation (EU) 2019/815 [1][2]. The ESRS sustainability statement must also be presented in a format that is both human-readable and machine-readable [5].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2108,
+      "output_tokens": 279,
+      "cost_usd": 0.0003503,
+      "seconds": 1.49
+    },
+    {
+      "id": "q08",
+      "retrieved": [
+        "esrs#0043",
+        "esrs#0044",
+        "esrs#0045",
+        "esrs#0113",
+        "esrs#0218"
+      ],
+      "answer": "The medium-term time horizon runs from the end of the short-term reporting period up to 5 years [2][1].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2151,
+      "output_tokens": 36,
+      "cost_usd": 0.00023310000000000003,
+      "seconds": 0.74
+    },
+    {
+      "id": "q09",
+      "retrieved": [
+        "esrs#0019",
+        "esrs#0020",
+        "esrs#0087",
+        "esrs#0088",
+        "esrs#0104"
+      ],
+      "answer": "Regardless of the materiality assessment outcome, the undertaking must always disclose all Disclosure Requirements and datapoints in ESRS 2 General Disclosures, plus the topical ESRS Disclosure Requirements (including datapoints) related to IRO-1, as listed in ESRS 2 Appendix C [1][2].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2332,
+      "output_tokens": 251,
+      "cost_usd": 0.00035870000000000005,
+      "seconds": 1.49
+    },
+    {
+      "id": "q10",
+      "retrieved": [
+        "esrs#0256",
+        "esrs#0413",
+        "taxonomy#0058",
+        "esrs#0255",
+        "esrs#0747"
+      ],
+      "answer": "NOT IN SOURCES",
+      "stop_reason": "end_turn",
+      "input_tokens": 2321,
+      "output_tokens": 295,
+      "cost_usd": 0.0003796,
+      "seconds": 1.88
+    },
+    {
+      "id": "q11",
+      "retrieved": [
+        "taxonomy#0077",
+        "taxonomy#0076",
+        "taxonomy#0082",
+        "esrs#0238",
+        "taxonomy#0060"
+      ],
+      "answer": "An economic activity qualifies as contributing substantially to an environmental objective as an enabling activity when it directly enables other activities to make a substantial contribution to one or more of those objectives, provided it does not lead to a lock-in of assets that undermine long-term environmental goals (considering their economic lifetime) and has a substantial positive environmental impact on a life-cycle basis [1].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2131,
+      "output_tokens": 124,
+      "cost_usd": 0.0002751,
+      "seconds": 0.99
+    },
+    {
+      "id": "q12",
+      "retrieved": [
+        "taxonomy#0056",
+        "taxonomy#0047",
+        "taxonomy#0057",
+        "esrs#0224",
+        "csrd#0049"
+      ],
+      "answer": "Under Article 8(2), non-financial undertakings must disclose the proportion of their turnover derived from environmentally sustainable products or services, the proportion of their capital expenditure, and the proportion of their operating expenditure linked to environmentally sustainable assets or processes [1][3].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2325,
+      "output_tokens": 211,
+      "cost_usd": 0.000338,
+      "seconds": 1.23
+    },
+    {
+      "id": "q13",
+      "retrieved": [
+        "csrd#0021",
+        "csrd#0174",
+        "csrd#0173",
+        "csrd#0110",
+        "taxonomy#0056"
+      ],
+      "answer": "A non-EU (third-country) undertaking must report if it generates a net turnover of more than EUR 150 million in the Union and has a subsidiary or branch in the EU [1]. For a branch, the threshold is more than EUR 40 million net turnover in the preceding financial year, and the EUR 150 million test applies at group or individual level over the last two consecutive financial years [1][2][3].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2123,
+      "output_tokens": 305,
+      "cost_usd": 0.00036480000000000003,
+      "seconds": 1.75
+    },
+    {
+      "id": "q14",
+      "retrieved": [
+        "csrd#0085",
+        "csrd#0195",
+        "csrd#0231",
+        "csrd#0194",
+        "csrd#0048"
+      ],
+      "answer": "The CSRD first requires a **limited assurance** engagement on sustainability reporting, as part of a progressive approach toward higher assurance levels [1].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2158,
+      "output_tokens": 180,
+      "cost_usd": 0.0003058,
+      "seconds": 1.21
+    },
+    {
+      "id": "q15",
+      "retrieved": [
+        "csrd#0076",
+        "csrd#0214",
+        "csrd#0175",
+        "csrd#0176",
+        "esrs#0001"
+      ],
+      "answer": "The Commission had to adopt the first set of sustainability reporting standards by 30 June 2023 [1][5].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2134,
+      "output_tokens": 38,
+      "cost_usd": 0.0002324,
+      "seconds": 0.75
+    },
+    {
+      "id": "q16",
+      "retrieved": [
+        "csrd#0073",
+        "csrd#0076",
+        "csrd#0013",
+        "csrd#0151",
+        "csrd#0250"
+      ],
+      "answer": "The Commission must review the sustainability reporting standards every three years, to take account of relevant developments, including international standards [2][4].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2146,
+      "output_tokens": 41,
+      "cost_usd": 0.00023510000000000002,
+      "seconds": 0.78
+    },
+    {
+      "id": "q17",
+      "retrieved": [
+        "esrs#0001",
+        "csrd#0184",
+        "csrd#0054",
+        "esrs#0002",
+        "csrd#0053"
+      ],
+      "answer": "The Commission takes account of technical advice developed by EFRAG (the European Financial Reporting Advisory Group) [3][4]. Passage [2] also states that the Commission must request an opinion from ESMA, but EFRAG is the body providing the technical advice.",
+      "stop_reason": "end_turn",
+      "input_tokens": 2286,
+      "output_tokens": 87,
+      "cost_usd": 0.0002721,
+      "seconds": 1.3
+    },
+    {
+      "id": "q18",
+      "retrieved": [
+        "esrs#0043",
+        "esrs#0044",
+        "esrs#0045",
+        "esrs#0113",
+        "esrs#0709"
+      ],
+      "answer": "The long-term time horizon is more than 5 years, measured from the end of the reporting period [1][2]. Paragraph 78 allows an additional breakdown of the long-term horizon when impacts or actions are expected beyond 5 years [2].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2164,
+      "output_tokens": 80,
+      "cost_usd": 0.0002564,
+      "seconds": 0.86
+    },
+    {
+      "id": "q19",
+      "retrieved": [
+        "esrs#0185",
+        "esrs#0184",
+        "esrs#0220",
+        "esrs#0191",
+        "esrs#0187"
+      ],
+      "answer": "Disclosure Requirement E1-1 – Transition plan for climate change mitigation covers the undertaking's transition plan for climate change mitigation, as stated in paragraph 14 (\"The undertaking shall disclose its transition plan for climate change mitigation\") [4]. It is also listed under the Strategy heading in the passage [1].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2494,
+      "output_tokens": 112,
+      "cost_usd": 0.0003054,
+      "seconds": 0.97
+    },
+    {
+      "id": "q20",
+      "retrieved": [
+        "esrs#0254",
+        "esrs#0186",
+        "esrs#0272",
+        "esrs#0273",
+        "esrs#0253"
+      ],
+      "answer": "The GWP values must be the most recent IPCC values based on a 100-year time horizon. This is stated in the AR 39(d) requirement for GHG emissions reporting [1] and repeated in the requirement for GHG removals calculations [3][4].",
+      "stop_reason": "end_turn",
+      "input_tokens": 2336,
+      "output_tokens": 82,
+      "cost_usd": 0.0002746,
+      "seconds": 0.91
+    },
+    {
+      "id": "u01",
+      "retrieved": [
+        "csrd#0081",
+        "taxonomy#0088",
+        "csrd#0164",
+        "csrd#0194",
+        "esrs#0037"
+      ],
+      "answer": "NOT IN SOURCES",
+      "stop_reason": "end_turn",
+      "input_tokens": 2149,
+      "output_tokens": 12,
+      "cost_usd": 0.0002209,
+      "seconds": 0.68
+    },
+    {
+      "id": "u02",
+      "retrieved": [
+        "esrs#0186",
+        "esrs#0192",
+        "esrs#0220",
+        "esrs#0191",
+        "esrs#0785"
+      ],
+      "answer": "NOT IN SOURCES",
+      "stop_reason": "end_turn",
+      "input_tokens": 2458,
+      "output_tokens": 12,
+      "cost_usd": 0.0002518,
+      "seconds": 0.68
+    },
+    {
+      "id": "u03",
+      "retrieved": [
+        "esrs#0257",
+        "esrs#0258",
+        "esrs#0823",
+        "esrs#0278",
+        "esrs#0000"
+      ],
+      "answer": "NOT IN SOURCES",
+      "stop_reason": "end_turn",
+      "input_tokens": 2404,
+      "output_tokens": 12,
+      "cost_usd": 0.0002464,
+      "seconds": 0.7
+    },
+    {
+      "id": "u04",
+      "retrieved": [
+        "esrs#0535",
+        "esrs#0478",
+        "esrs#0536",
+        "esrs#0534",
+        "esrs#0537"
+      ],
+      "answer": "NOT IN SOURCES",
+      "stop_reason": "end_turn",
+      "input_tokens": 2048,
+      "output_tokens": 66,
+      "cost_usd": 0.0002378,
+      "seconds": 0.96
+    },
+    {
+      "id": "u05",
+      "retrieved": [
+        "csrd#0014",
+        "csrd#0008",
+        "csrd#0044",
+        "taxonomy#0017",
+        "esrs#0750"
+      ],
+      "answer": "NOT IN SOURCES",
+      "stop_reason": "end_turn",
+      "input_tokens": 2247,
+      "output_tokens": 12,
+      "cost_usd": 0.00023070000000000002,
+      "seconds": 0.67
+    },
+    {
+      "id": "u06",
+      "retrieved": [
+        "taxonomy#0018",
+        "esrs#0087",
+        "esrs#0088",
+        "esrs#0167",
+        "esrs#0099"
+      ],
+      "answer": "NOT IN SOURCES",
+      "stop_reason": "end_turn",
+      "input_tokens": 2135,
+      "output_tokens": 12,
+      "cost_usd": 0.0002195,
+      "seconds": 0.67
+    },
+    {
+      "id": "u07",
+      "retrieved": [
+        "taxonomy#0013",
+        "taxonomy#0014",
+        "taxonomy#0012",
+        "esrs#0745",
+        "taxonomy#0015"
+      ],
+      "answer": "NOT IN SOURCES",
+      "stop_reason": "end_turn",
+      "input_tokens": 2264,
+      "output_tokens": 12,
+      "cost_usd": 0.0002324,
+      "seconds": 0.67
+    },
+    {
+      "id": "u08",
+      "retrieved": [
+        "esrs#0206",
+        "csrd#0065",
+        "esrs#0209",
+        "esrs#0265",
+        "esrs#0259"
+      ],
+      "answer": "NOT IN SOURCES",
+      "stop_reason": "end_turn",
+      "input_tokens": 2438,
+      "output_tokens": 12,
+      "cost_usd": 0.0002498,
+      "seconds": 0.65
+    },
+    {
+      "id": "u09",
+      "retrieved": [
+        "taxonomy#0017",
+        "taxonomy#0018",
+        "csrd#0182",
+        "csrd#0244",
+        "csrd#0247"
+      ],
+      "answer": "Under the amended schedule, large undertakings that are not public-interest entities with over 500 employees (the non-listed group) must report for financial years starting on or after 1 January 2025, so the date is 2025 [4]. The passages set out this date but do not explicitly describe it as a postponement.",
+      "stop_reason": "end_turn",
+      "input_tokens": 2183,
+      "output_tokens": 607,
+      "cost_usd": 0.0005218,
+      "seconds": 3.36
+    },
+    {
+      "id": "u10",
+      "retrieved": [
+        "esrs#0260",
+        "esrs#0751",
+        "esrs#0813",
+        "esrs#0814",
+        "esrs#0750"
+      ],
+      "answer": "NOT IN SOURCES",
+      "stop_reason": "end_turn",
+      "input_tokens": 2522,
+      "output_tokens": 12,
+      "cost_usd": 0.00025820000000000004,
+      "seconds": 0.68
+    }
+  ]
+}
